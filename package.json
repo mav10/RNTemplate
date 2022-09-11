@@ -1,0 +1,23 @@
+{
+  "name": "react-native-mav10-template",
+  "version": "0.0.1",
+  "description": "React Native MAV10 Template. It includes configured libs like a redux, redux-persist, push-notifications, sentry, splash screen etc.",
+  "author": "Maxim Vasin <maxim.vasin@mail.ru>",
+  "license": "MIT",
+  "config": {
+    "appname": "",
+    "projectname": "",
+    "bundleid": "",
+    "appiconpath": "",
+    "splashpath": "",
+    "withKeyStore": false,
+    "issentryintegrated": false
+  },
+  "dependencies": {
+    "colors": "1.4.0",
+    "cross-env": "7.0.3",
+    "fs-extra": "10.0.0",
+    "node-replace": "0.3.3",
+    "inquirer": "8.2.0"
+  }
+}
