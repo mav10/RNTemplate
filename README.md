@@ -121,7 +121,7 @@ keytool -genkey -alias <desired certificate alias> -keystore <keystore name.keys
 
 after that wizard will ask you about questions Write down corresponding information something like this
 ```
-CN=Mcc Developer, OU=Mobile, O=MCC Tomsk, L=Tomsk, ST=Tomsk, C=RU
+CN=Developer, OU=Mobile, O=Home, L=Tomsk, ST=Tomsk, C=RU
 ```
 
 Or you can run `yarn signing-android` script (_But fill package json - config section before, if you deploy app not from autoscript_)
