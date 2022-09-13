@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import "RNBootSplash.h"
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -45,7 +44,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 #endif
 
   NSDictionary *initProps = [self prepareInitialProps];
-  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"rntemplateapp", initProps);
+  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"RNTemplateApp", initProps);
 
   if (@available(iOS 13.0, *)) {
     rootView.backgroundColor = [UIColor systemBackgroundColor];
@@ -58,9 +57,6 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  
-  [RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView];
-  
   return YES;
 }
 

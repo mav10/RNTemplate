@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, { type PropsWithChildren } from 'react';
+import React, {type PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -26,14 +26,12 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { SplashScreen } from './src/screens/Splash/SplashScreen';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Section: React.FC<
   PropsWithChildren<{
     title: string;
   }>
-> = ({ children, title }) => {
+> = ({children, title}) => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -43,8 +41,7 @@ const Section: React.FC<
           {
             color: isDarkMode ? Colors.white : Colors.black,
           },
-        ]}
-      >
+        ]}>
         {title}
       </Text>
       <Text
@@ -53,15 +50,14 @@ const Section: React.FC<
           {
             color: isDarkMode ? Colors.light : Colors.dark,
           },
-        ]}
-      >
+        ]}>
         {children}
       </Text>
     </View>
   );
 };
 
-const Root = () => {
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -76,14 +72,12 @@ const Root = () => {
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}
-      >
+        style={backgroundStyle}>
         <Header />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}
-        >
+          }}>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
@@ -101,15 +95,6 @@ const Root = () => {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
-};
-
-export const App = () => {
-  return (
-    <SafeAreaProvider>
-      <Root />
-      <SplashScreen />
-    </SafeAreaProvider>
   );
 };
 
@@ -131,3 +116,5 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
+
+export default App;
