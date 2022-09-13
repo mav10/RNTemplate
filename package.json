@@ -26,9 +26,5 @@
   "homepage": "https://github.com/mav10/RNTemplate#readme",
   "dependencies": {
     "colors": "1.4.0",
-    "cross-env": "7.0.3",
-    "fs-extra": "10.0.0",
-    "node-replace": "0.3.3",
-    "inquirer": "8.2.0"
   }
 }

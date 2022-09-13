@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, {type PropsWithChildren} from 'react';
+import React, { type PropsWithChildren } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -26,12 +26,14 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { SplashScreen } from './src/screens/Splash/SplashScreen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Section: React.FC<
   PropsWithChildren<{
     title: string;
   }>
-> = ({children, title}) => {
+> = ({ children, title }) => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -57,7 +59,7 @@ const Section: React.FC<
   );
 };
 
-const App = () => {
+const Root = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -98,6 +100,15 @@ const App = () => {
   );
 };
 
+export const App = () => {
+  return (
+    <SafeAreaProvider>
+      <Root />
+      <SplashScreen />
+    </SafeAreaProvider>
+  );
+};
+
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
@@ -116,5 +127,3 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
-
-export default App;
