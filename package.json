@@ -1,18 +1,29 @@
 {
-  "name": "react-native-mav10-template",
-  "version": "0.0.1",
+  "name": "ract-native-mav10-template",
+  "version": "1.0.0",
   "description": "React Native MAV10 Template. It includes configured libs like a redux, redux-persist, push-notifications, sentry, splash screen etc.",
-  "author": "Maxim Vasin <maxim.vasin@mail.ru>",
-  "license": "MIT",
-  "config": {
-    "appname": "",
-    "projectname": "",
-    "bundleid": "",
-    "appiconpath": "",
-    "splashpath": "",
-    "withKeyStore": false,
-    "issentryintegrated": false
+  "directories": {
+    "doc": "doc"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mav10/RNTemplate.git"
+  },
+  "keywords": [
+    "React-Native",
+    "template",
+    "boilerplate",
+    "RN"
+  ],
+  "author": "Maxim Vasin <maxim.vasin@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mav10/RNTemplate/issues"
+  },
+  "homepage": "https://github.com/mav10/RNTemplate#readme",
   "dependencies": {
     "colors": "1.4.0",
     "cross-env": "7.0.3",

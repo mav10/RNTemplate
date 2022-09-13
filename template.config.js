@@ -1,8 +1,8 @@
 module.exports = {
-  // Placeholder name that will be replaced in package.json, index.json, android/, ios/ for a project name.
+  // Placeholder name that will be replaced in package, index.json, android/, ios/ for a project name.
   placeholderName: 'rntemplateapp',
 
-  // Directory with the template which will be copied and processed by React Native CLI. Template directory should have package.json with all dependencies specified, including `react-native`.
+  // Directory with the template which will be copied and processed by React Native CLI. Template directory should have package with all dependencies specified, including `react-native`.
   templateDir: './template',
 
   // Placeholder title that will be replaced in values.xml and Info.plist with title provided by the user.
