@@ -85,8 +85,8 @@ Because distribution will be through the AppCenter anyway (if you want to use co
 You can do it by CLI command - it is described [here](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli#app-management)
 
 ```
-appcenter orgs apps create -d MccTemplateApp-Android     -a MccTemplateApp-Android -o Android -p React-Native -n MccTomsk
-appcenter orgs apps create -d MccTemplateApp-iOS -a MccTemplateApp-iOS -o iOS -p React-Native -n MccTomsk
+appcenter orgs apps create -d RNTemplate-Android     -a RNTemplateApp-Android -o Android -p React-Native -n Mav10
+appcenter orgs apps create -d RNTemplate-iOS -a RNTemplateApp-iOS -o iOS -p React-Native -n Mav10
 ```
 In App Center, you must create them yourself using the following commands:
 ```

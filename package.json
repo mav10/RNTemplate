@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/mav10/RNTemplate#readme",
   "dependencies": {
-    "colors": "1.4.0"
+    "colors": "1.4.0",
+    "js-logger": "^1.6.1",
+    "react-native-config": "^1.4.6"
   }
 }
