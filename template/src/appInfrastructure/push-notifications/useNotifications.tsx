@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { logger } from '../logging/logging';
-import messaging from '@react-native-firebase/messaging';
+import messaging, {
+  FirebaseMessagingTypes,
+} from '@react-native-firebase/messaging';
 import {
   onFcmMessageInForeground,
   onFcmTokenRefresh,
   onNotificationOpened,
 } from './push-handlers';
+import RemoteMessage = FirebaseMessagingTypes.RemoteMessage;
 
 export function useNotifications() {
   const registerRemoteNotifications = async () => {
@@ -42,7 +45,7 @@ export function useNotifications() {
   useEffect(() => {
     messaging()
       .getInitialNotification()
-      .then((message) => {
+      .then((message: RemoteMessage | null) => {
         if (message) {
           logger().info(
             'Notification caused app to open from quit state: ' +

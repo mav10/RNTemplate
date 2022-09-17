@@ -11,6 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import RNBootSplash from 'react-native-bootsplash';
 import { localStyles } from './Splash.styles';
+import { useAppSelector } from '../../appInfrastructure/redux-store/store-types';
 
 const splashLogo = require('./../../../assets/images/bootsplash_logo.png');
 const bottomLogo = require('./../../../assets/images/init/bottom_logo_64.png');
@@ -23,7 +24,7 @@ export const SplashScreen = () => {
   const opacity = useRef(new Animated.Value(1));
   const opacityOfOtherElements = useRef(new Animated.Value(0));
   const translateY = useRef(new Animated.Value(0));
-  const isInit = true; //take it from your loading api or store
+  const { isInit } = useAppSelector(state => state.app);
 
   useEffect(() => {
     const init = async () => {
@@ -77,8 +78,7 @@ export const SplashScreen = () => {
           StyleSheet.absoluteFill,
           localStyles.bootsplash,
           { opacity: opacity.current },
-        ]}
-      >
+        ]}>
         <Animated.Image
           source={splashLogo}
           fadeDuration={0}
@@ -91,8 +91,7 @@ export const SplashScreen = () => {
         style={[
           localStyles.footer,
           { opacity: opacityOfOtherElements.current },
-        ]}
-      >
+        ]}>
         <Image
           source={bottomLogo}
           resizeMode={'contain'}

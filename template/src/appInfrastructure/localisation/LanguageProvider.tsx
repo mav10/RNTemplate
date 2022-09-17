@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { initializeLocalization } from './localization';
 
-export const LanguageProvider: React.FC = (props) => {
+export const LanguageProvider: React.FC<PropsWithChildren> = (
+  props: PropsWithChildren,
+) => {
   const [isLoading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -13,5 +15,5 @@ export const LanguageProvider: React.FC = (props) => {
     bootstrapAsync();
   }, []);
 
-  return isLoading ? null : <>{props.children}</>;
+  return isLoading ? <></> : <>{props.children}</>;
 };

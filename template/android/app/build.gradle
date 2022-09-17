@@ -1,4 +1,6 @@
 apply plugin: "com.android.application"
+apply plugin: 'com.google.gms.google-services'
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -83,6 +85,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -129,6 +132,35 @@ def reactNativeArchitectures() {
     return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
 }
 
+def getVersionCode = { ->
+  // if buildVersion is exist, it means that build triggers by AppCenter.
+  def buildVersion = System.getenv('REACT_APP_BUILD_ID');
+
+  // Otherwise we triggered it manually. Kinda develop build.
+  if (buildVersion == null) {
+      // Default version.
+      return 1
+  }
+
+  try {
+      return Integer.parseInt(buildVersion);
+  } catch (e) {
+      // ignore
+  }
+}
+
+def getVersionName = { ->
+  // if versionName is exist, it means that build triggers by AppCenter.
+  def versionName = System.getenv('VERSION_NAME');
+
+  if (versionName == null) {
+      // Otherwise we triggered it manually. Kinda develop build.
+      return "1.0." + getVersionCode()
+  }
+
+  return versionName;
+}
+
 android {
     ndkVersion rootProject.ext.ndkVersion
 
@@ -138,9 +170,13 @@ android {
         applicationId "com.rntemplateapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode getVersionCode()
+        versionName getVersionName()
+        // fixes CodePush with gradle plugin 4+: https://github.com/microsoft/react-native-code-push/issues/1961
+        resValue 'string', "CODE_PUSH_APK_BUILD_TIME", String.format("\"%d\"", System.currentTimeMillis())
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+
+        multiDexEnabled true // to use for Firebase packages
 
         if (isNewArchitectureEnabled()) {
             // We configure the CMake build only if you decide to opt-in for the New Architecture.

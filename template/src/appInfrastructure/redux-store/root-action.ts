@@ -1,4 +1,5 @@
-import { AppActions } from '../../features/app/app-reducer';
-import { AuthActions } from '../../features/auth/auth-reducer';
+import { createAction } from '@reduxjs/toolkit';
+import { AppActions } from '../../features/app/app-slice';
 
-export type RootAction = AppActions | AuthActions;
+export const logoutAction = createAction('logout');
+export type RootAction = typeof AppActions | typeof logoutAction;

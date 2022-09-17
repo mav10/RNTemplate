@@ -1,10 +1,7 @@
-import { ApplicationState } from '../../features/app/app-state';
-import { TypedUseSelectorHook, useSelector } from 'react-redux';
-import { AuthState } from '../../features/auth/auth-state';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { RootStore } from './root-store';
 
-export interface RootState {
-  app: ApplicationState;
-  auth: AuthState;
-}
-
+export type RootState = ReturnType<typeof RootStore.store.getState>;
+export type AppDispatch = typeof RootStore.store.dispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

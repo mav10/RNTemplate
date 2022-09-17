@@ -1,35 +1,18 @@
-import { appReducer } from '../../features/app/app-reducer';
+import { AnyAction, combineReducers, Reducer } from '@reduxjs/toolkit';
+import { appSlice } from '../../features/app/app-slice';
+import { defaultAppState } from '../../features/app/app-types';
+import { logoutAction } from './root-action';
 import { RootState } from './store-types';
-import { RootAction } from './root-action';
-import { authReducer } from '../../features/auth/auth-reducer';
-import { getType } from 'typesafe-actions';
-import { logout } from '../../features/auth/auth-events';
-import { defaultAppState } from '../../features/app/app-state';
-import { combineReducers } from 'redux';
 
-let _logoutHandler = () => {
-  /* no action by default */
-};
-
-export function addLogoutHandler(handler: () => void) {
-  const oldLogoutHandler = _logoutHandler;
-  _logoutHandler = () => {
-    oldLogoutHandler();
-    handler();
-  };
-}
-
-const reducer = combineReducers<RootState>({
-  app: appReducer,
-  auth: authReducer as any,
+const reducer: Reducer = combineReducers({
+  app: appSlice.reducer,
 });
 
-export const rootReducer = (state: any, action: RootAction) => {
-  if (action.type === getType(logout)) {
+export const rootReducer: Reducer = (state: RootState, action: AnyAction) => {
+  if (action.type === logoutAction.type) {
     state = {
       app: { ...defaultAppState, isInit: state.app.isInit },
     };
-    _logoutHandler();
   }
 
   return reducer(state, action);

@@ -7,6 +7,6 @@ export const persistConfig: PersistConfig<any> = {
   key: 'root',
   version: 0,
   storage: AsyncStorage,
-  whitelist: ['auth'],
+  whitelist: [],
   migrate: createMigrate(migrations, { debug: false }),
 };

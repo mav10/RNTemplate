@@ -1,129 +1,68 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
-import React, { type PropsWithChildren } from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import React, { Suspense, useEffect, useMemo } from 'react';
 import { SplashScreen } from './src/screens/Splash/SplashScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { logger } from './src/appInfrastructure/logging/logging';
+import Config from 'react-native-config';
+import codePush from 'react-native-code-push';
+import { getCodePushConfiguration } from './src/appInfrastructure/code-push/code-push';
+import { LanguageProvider } from './src/appInfrastructure/localisation/LanguageProvider';
+import { Loader } from './src/components/loaders/loader.component';
+import axios from 'axios';
+import * as Interceptors from './src/helpers/axios-interceptors';
+import { RootStore } from './src/appInfrastructure/redux-store/root-store';
+import { useNotifications } from './src/appInfrastructure/push-notifications/useNotifications';
+import { useTranslation } from 'react-i18next';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { CodePushProvider } from './src/appInfrastructure/code-push/CodePushProvider';
+import { ApplicationRouter } from './src/navigation';
 
-const Section: React.FC<
-  PropsWithChildren<{
-    title: string;
-  }>
-> = ({ children, title }) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+axios.interceptors.request.use(
+  Interceptors.injectAppVersionToHeaders(RootStore.store.getState),
+);
+axios.interceptors.request.use(Interceptors.injectLanguageInterceptor);
 
 const Root = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+  const { t } = useTranslation();
+  // TODO: if you wanna get notifications only for authorized user - put it somewhere deeper (under authorized screens).
+  useNotifications();
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  const loading = useMemo(() => {
+    return <Loader inProgress={true} text={t('Common_loading')} />;
+  }, [t]);
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Suspense fallback={loading}>
+      <Provider store={RootStore.store}>
+        <PersistGate persistor={RootStore.persistor}>
+          <CodePushProvider>
+            <ApplicationRouter />
+            <SplashScreen />
+          </CodePushProvider>
+        </PersistGate>
+      </Provider>
+    </Suspense>
   );
 };
 
-export const App = () => {
+const App = () => {
+  useEffect(() => {
+    logger().info(`App env variables: ${JSON.stringify(Config)}`);
+  }, []);
+
+  const loadingWithoutText = useMemo(() => {
+    return <Loader inProgress={true} />;
+  }, []);
+
   return (
-    <SafeAreaProvider>
-      <Root />
-      <SplashScreen />
-    </SafeAreaProvider>
+    <Suspense fallback={loadingWithoutText}>
+      <LanguageProvider>
+        <SafeAreaProvider>
+          <Root />
+        </SafeAreaProvider>
+      </LanguageProvider>
+    </Suspense>
   );
 };
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+export default codePush(getCodePushConfiguration())(App);

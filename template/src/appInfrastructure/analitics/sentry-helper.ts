@@ -5,17 +5,17 @@ import {
   init,
   nativeCrash,
   setExtra,
-  Severity,
 } from '@sentry/react-native';
 import Config from 'react-native-config';
 import { logger } from '../logging/logging';
 import { NavigationState } from '@react-navigation/native';
-import { routeNameRef } from '../../services/navigation-service';
+import { Severity } from '@sentry/types/types/severity';
+import { navigationRef } from '../../navigation';
 
 function toFlatStateList(state: NavigationState): NavigationState[] {
   const currentRoute = state.routeNames[state.index];
   const possibleDeepRoute = state.routes.find(
-    (x) => x.name === currentRoute,
+    x => x.name === currentRoute,
   )?.state;
 
   const result: NavigationState[] = [state];
@@ -39,7 +39,7 @@ export const sentryScreenTrackHandler = (
     const rootRoute = flatArray[0];
     const actualRoute = flatArray.slice(-1)[0];
 
-    const previousRouteName = routeNameRef.current;
+    const previousRouteName = navigationRef.current?.getState();
 
     if (previousRouteName !== actualRoute) {
       const breadcrumb: Breadcrumb = {
