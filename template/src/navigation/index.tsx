@@ -8,7 +8,6 @@ import {
 } from '@react-navigation/native';
 import { CommonColors } from '../commons/styles/colors';
 import { RouteParamList } from './configuration/routeParams';
-import { sentryScreenTrackHandler } from '../appInfrastructure/analitics/sentry-helper';
 import { RootStack } from './configuration/navigators';
 import { NotImplementedScreen } from '../commons/NotImplementedScreen';
 import { AppRoutes } from './configuration/routes';
@@ -39,8 +38,7 @@ export const ApplicationRouter = () => {
     <NavigationContainer
       linking={linking}
       ref={navigationRef}
-      onReady={onReady}
-      onStateChange={sentryScreenTrackHandler}>
+      onReady={onReady}>
       <RootStack.Navigator
         screenOptions={screenOptions}
         initialRouteName={AppRoutes.ReactNative}>

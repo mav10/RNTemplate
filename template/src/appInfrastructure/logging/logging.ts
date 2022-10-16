@@ -1,5 +1,4 @@
 import * as Logger from 'js-logger';
-import { captureLog } from '../analitics/sentry-helper';
 
 export const setupDefaultLogger = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -39,7 +38,6 @@ class LoggerWrapper implements IWrapperLogger {
   public error(msg: string, error?: Error) {
     const message = `${msg}. ${error && `Details: ${JSON.stringify(error)}`}`;
     this.loggerImpl.error(message);
-    captureLog(message);
   }
 }
 

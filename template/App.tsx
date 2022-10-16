@@ -25,7 +25,7 @@ axios.interceptors.request.use(Interceptors.injectLanguageInterceptor);
 const Root = () => {
   const { t } = useTranslation();
   // TODO: if you wanna get notifications only for authorized user - put it somewhere deeper (under authorized screens).
-  useNotifications();
+  // useNotifications();
 
   const loading = useMemo(() => {
     return <Loader inProgress={true} text={t('Common_loading')} />;

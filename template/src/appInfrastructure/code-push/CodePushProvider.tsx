@@ -2,7 +2,6 @@ import React, { FC, PropsWithChildren, useEffect } from 'react';
 import CodePush, { LocalPackage } from 'react-native-code-push';
 import { logger } from '../logging/logging';
 import Config from 'react-native-config';
-import { SetCodePushVersionIntoSentry } from '../analitics/sentry-helper';
 import { useAppDispatch } from '../redux-store/store-types';
 import { AppActions } from '../../features/app/app-slice';
 
@@ -19,9 +18,6 @@ export const CodePushProvider: FC<PropsWithChildren> = props => {
           logger().info(
             `Set up CodePush VERSION: ${codePushVersion}. Main BUILD VERSION: ${Config.REACT_APP_VERSION_NAME}`,
           );
-          SetCodePushVersionIntoSentry(codePushVersion);
-        } else {
-          SetCodePushVersionIntoSentry(undefined);
         }
       },
     );

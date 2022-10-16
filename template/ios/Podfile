@@ -3,6 +3,8 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
+$RNFirebaseAsStaticFramework = true
+$FirebaseSDKVersion= '9.6.0'
 
 def fix_hermes(app_name)
   path = "Pods/Target Support Files/Pods-" + app_name + "/Pods-" + app_name + "-frameworks.sh"
@@ -17,6 +19,10 @@ end
 
 target 'RNTemplateApp' do
   config = use_native_modules!
+  pod 'Firebase', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+
 
   # Flags change depending on the env values.
   flags = get_default_flags()
@@ -44,7 +50,6 @@ target 'RNTemplateApp' do
       # necessary for Mac Catalyst builds
       :mac_catalyst_enabled => false
     )
-    fix_hermes("RNTemplateApp")
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
