@@ -1,19 +1,14 @@
 import React, { useCallback } from 'react';
 import { AppActions } from '../features/app/app-slice';
 import { useAppDispatch } from '../appInfrastructure/redux-store/store-types';
-import {
-  createNavigationContainerRef,
-  LinkingOptions,
-  NavigationContainer,
-} from '@react-navigation/native';
+import { LinkingOptions, NavigationContainer } from '@react-navigation/native';
 import { CommonColors } from '../commons/styles/colors';
 import { RouteParamList } from './configuration/routeParams';
 import { RootStack } from './configuration/navigators';
 import { NotImplementedScreen } from '../commons/NotImplementedScreen';
 import { AppRoutes } from './configuration/routes';
 import { ReactNativeScreen } from '../screens/ReactNative/ReactNativeScreen';
-
-export const navigationRef = createNavigationContainerRef<RouteParamList>();
+import { navigationRef } from '../services/navigation-service';
 
 const screenOptions = {
   cardStyle: { backgroundColor: CommonColors.background },
@@ -32,24 +27,13 @@ export const ApplicationRouter = () => {
 
   const onReady = useCallback(async () => {
     dispatch(AppActions.initialized());
-  }, []);
+  }, [dispatch]);
 
   return (
-    <NavigationContainer
-      linking={linking}
-      ref={navigationRef}
-      onReady={onReady}>
-      <RootStack.Navigator
-        screenOptions={screenOptions}
-        initialRouteName={AppRoutes.ReactNative}>
-        <RootStack.Screen
-          name={AppRoutes.Dashboard}
-          component={NotImplementedScreen}
-        />
-        <RootStack.Screen
-          name={AppRoutes.ReactNative}
-          component={ReactNativeScreen}
-        />
+    <NavigationContainer linking={linking} ref={navigationRef} onReady={onReady}>
+      <RootStack.Navigator screenOptions={screenOptions} initialRouteName={AppRoutes.ReactNative}>
+        <RootStack.Screen name={AppRoutes.Dashboard} component={NotImplementedScreen} />
+        <RootStack.Screen name={AppRoutes.ReactNative} component={ReactNativeScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
   );

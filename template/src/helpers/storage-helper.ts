@@ -6,10 +6,7 @@ const put = async (key: string, value: string) => {
   try {
     await AsyncStorage.setItem(key, value);
   } catch (e: any) {
-    logger().error(
-      'CacheService: Failed to put pair ' + `[${key}, ${value}]`,
-      e,
-    );
+    logger().error('CacheService: Failed to put pair ' + `[${key}, ${value}]`, e);
     __DEV__ && console.log(e);
   }
 };

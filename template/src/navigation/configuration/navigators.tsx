@@ -5,7 +5,6 @@ import { RootStackScreenParams } from './routeParams';
 
 const NativeRootStack = createNativeStackNavigator<RootStackScreenParams>();
 
-export const useRootNavigation: () => StackNavigationProp<RootStackScreenParams> =
-  useNavigation;
+export const useRootNavigation: () => StackNavigationProp<RootStackScreenParams> = useNavigation;
 
 export const RootStack = NativeRootStack;

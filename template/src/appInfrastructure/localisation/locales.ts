@@ -1,3 +1,5 @@
+import { de, enGB, ru } from 'date-fns/locale';
+
 export type Language = 'en' | 'de' | 'ru';
 export type Namespace = 'localization' | 'dev';
 
@@ -5,6 +7,12 @@ export type Locale = {
   language: Language;
   ns: Namespace;
   resource: any;
+};
+
+export const dateLocales: { [key in Language]: typeof enGB } = {
+  en: enGB,
+  de: de,
+  ru: ru,
 };
 
 export const fallbackLng: Language = 'en';

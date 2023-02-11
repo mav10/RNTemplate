@@ -1,0 +1,19 @@
+# Ignore artifacts:
+build
+coverage
+
+# Localisation
+/**/*/localization.*.json
+
+# Clients
+/**/*/api-client.ts
+/**/*/api-client/*
+/**/*/*Client.ts
+/**/*/*Query.ts
+
+# Mocks
+src/__tests__/Mocks/nock.ts
+
+assets
+
+.ci/*

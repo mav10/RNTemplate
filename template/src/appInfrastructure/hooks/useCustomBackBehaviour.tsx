@@ -17,6 +17,6 @@ export default function useCustomBackBehaviour(action?: () => void) {
       const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress);
 
       return subscription.remove;
-    }, [action]),
+    }, [action])
   );
 }

@@ -73,3 +73,5 @@ ios/tmp.xcconfig
 #Python
 python-log.txt
 
+# react-native-config codegen
+ios/tmp.xcconfig
