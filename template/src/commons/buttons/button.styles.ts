@@ -4,7 +4,6 @@ import { AppCommonStyles } from '../styles/styles';
 
 export const localButtonStyles = StyleSheet.create({
   button: {
-    width: '100%',
     paddingVertical: 15,
     paddingHorizontal: 25,
     borderRadius: 5,

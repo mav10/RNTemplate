@@ -1,19 +1,13 @@
 import React, { useMemo } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { ButtonProps } from './button';
-import {
-  disabledButtonStyles,
-  localButtonStyles,
-  localTextStyles,
-} from './button.styles';
+import { disabledButtonStyles, localButtonStyles, localTextStyles } from './button.styles';
 
 export const ButtonComponent = (props: ButtonProps) => {
   const colorsStyles = useMemo(() => {
     if (props.colors) {
       return {
-        backgroundColor: props.disabled
-          ? props.colors.disabled
-          : props.colors.active,
+        backgroundColor: props.disabled ? props.colors.disabled : props.colors.active,
       };
     }
 
@@ -23,9 +17,7 @@ export const ButtonComponent = (props: ButtonProps) => {
   const textColorsStyles = useMemo(() => {
     if (props.textColors) {
       return {
-        color: props.disabled
-          ? props.textColors.disabled
-          : props.textColors.active,
+        color: props.disabled ? props.textColors.disabled : props.textColors.active,
       };
     }
 
@@ -42,17 +34,8 @@ export const ButtonComponent = (props: ButtonProps) => {
         props.buttonStyles,
         props.disabled && disabledButtonStyles[props.type],
         colorsStyles,
-      ]}
-    >
-      <Text
-        style={[
-          localTextStyles.text,
-          localTextStyles[props.type],
-          textColorsStyles,
-        ]}
-      >
-        {props.label}
-      </Text>
+      ]}>
+      <Text style={[localTextStyles.text, localTextStyles[props.type], textColorsStyles]}>{props.label}</Text>
     </TouchableOpacity>
   );
 };

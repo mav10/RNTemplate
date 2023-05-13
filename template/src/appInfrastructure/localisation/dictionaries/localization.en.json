@@ -26,6 +26,8 @@
   "NetworkErrorBoundary_Button": "Refresh",
   "NetworkErrorBoundary_Header": "Network problems",
   "Home": {
+    "Greeting": "Hello Bro!",
+    "Description": "It is a dashboard page",
     "Libs": {
       "Header": "Packages",
       "ReactAndRedux_Header": "React-Redux",
@@ -67,7 +69,7 @@
     "User": {
       "Header": "User info",
       "Logout": "Sign out",
-      "UserId": "<0>UserId:</0> {{value}}",
+      "UserId": "<0>UserId:</0> {{value}}"
     },
     "App": {
       "Header": "App info",
