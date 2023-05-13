@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   Button,
   Dimensions,
@@ -8,6 +8,8 @@ import {
   ImageSourcePropType,
   Linking,
   ListRenderItemInfo,
+  SafeAreaView,
+  SafeAreaViewComponent,
   ScrollView,
   View,
 } from 'react-native';
@@ -88,7 +90,7 @@ export const DashboardController = () => {
   }, []);
 
   return (
-    <SafeAreaView style={localStyles.safeArea}>
+    <SafeAreaView>
       <ScrollView contentContainerStyle={localStyles.container}>
         <View style={localStyles.content}>
           <View style={localStyles.greeting}>

@@ -1,9 +1,13 @@
 import { AppRoutes } from './routes';
 
 export type RootStackScreenParams = {
-  [AppRoutes.Dashboard]: undefined;
+  [AppRoutes.Home]: undefined;
   [AppRoutes.NoConnection]: undefined;
-  [AppRoutes.ReactNative]: undefined;
 };
 
-export type RouteParamList = RootStackScreenParams;
+export type TabScreenParams = {
+  [AppRoutes.Dashboard]: undefined;
+  [AppRoutes.ReactNative]: undefined;
+  [AppRoutes.Notifications]: undefined;
+  [AppRoutes.Profile]: undefined;
+};

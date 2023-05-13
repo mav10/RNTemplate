@@ -1,5 +1,5 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RouteProp, useNavigation } from '@react-navigation/native';
+import { RootStackScreenParams } from './routeParams';
 
 declare global {
   namespace ReactNavigation {

@@ -1,10 +1,10 @@
 import { createNavigationContainerRef } from '@react-navigation/native';
-import { RouteParamList } from '../navigation/configuration/routeParams';
+import { RootStackScreenParams } from '../navigation/configuration/routeParams';
 
 /**
  * Navigation Ref object for bounding NavigationCOntainer and out-of-context helpers.
  */
-export const navigationRef = createNavigationContainerRef<RouteParamList>();
+export const navigationRef = createNavigationContainerRef<RootStackScreenParams>();
 
 /**
  * Helper for navigation out of react-context.
