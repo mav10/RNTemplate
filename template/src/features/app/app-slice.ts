@@ -17,6 +17,12 @@ export const appSlice = createSlice({
         isInit: true,
       };
     },
+    hideSplash: state => {
+      return {
+        ...state,
+        splashHidden: true,
+      };
+    },
   },
 });
 

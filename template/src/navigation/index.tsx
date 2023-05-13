@@ -7,7 +7,7 @@ import { RootStackScreenParams } from './configuration/routeParams';
 import { RootStack } from './configuration/navigators';
 import { AppRoutes } from './configuration/routes';
 import { navigationRef } from '../services/navigation-service';
-import { NotImplementedScreen } from '../commons/NotImplementedScreen';
+import { NotImplementedScreen } from '../screens/NotImplementedScreen';
 import { TabNavigation } from './TabNavigation';
 
 const screenOptions = {

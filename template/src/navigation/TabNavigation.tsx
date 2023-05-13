@@ -3,7 +3,7 @@ import { TabNavigator } from './configuration/navigators';
 import { AppRoutes } from './configuration/routes';
 import { DashboardController } from '../screens/Dashboard/DashboardController';
 import { ReactNativeScreen } from '../screens/ReactNative/ReactNativeScreen';
-import { NotImplementedScreen } from '../commons/NotImplementedScreen';
+import { NotImplementedScreen } from '../screens/NotImplementedScreen';
 
 export const TabNavigation = () => {
   return (

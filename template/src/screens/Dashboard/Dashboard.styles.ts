@@ -9,6 +9,20 @@ export const localStyles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
 
+  librariesCarousel: { gap: 10, paddingBottom: 10 },
+
+  buttonsCard: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 1,
+  },
+  cardLayout: { flex: 0 },
+  libCard: { flex: 0, gap: 5, flexWrap: 'nowrap' },
+  libRow: { flexDirection: 'row', gap: 10 },
+  libItem: { gap: 5 },
+
   appBlock: {
     justifyContent: 'space-between',
     alignItems: 'center',

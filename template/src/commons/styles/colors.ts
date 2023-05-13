@@ -27,6 +27,7 @@ export const CommonColors = {
 
   text: ColorScheme.black,
   plainText: ColorScheme.black,
+  secondaryText: ColorScheme.grey,
   background: ColorScheme.white,
   cardBackground: ColorScheme.white,
 

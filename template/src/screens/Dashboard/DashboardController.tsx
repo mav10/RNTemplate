@@ -1,19 +1,16 @@
 import React, { useCallback } from 'react';
-// import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   Button,
   Dimensions,
   FlatList,
   Image,
-  ImageSourcePropType,
   Linking,
   ListRenderItemInfo,
   SafeAreaView,
-  SafeAreaViewComponent,
   ScrollView,
+  Text,
   View,
 } from 'react-native';
-import { Text } from 'react-native';
 import { LanguageSwitcher } from '../../components/languageSwitcher/languageSwitcher.component';
 import { VersionComponent } from '../../components/version/version.component';
 import { localStyles } from './Dashboard.styles';
@@ -21,44 +18,9 @@ import { useTranslation } from 'react-i18next';
 import { AppCommonStyles } from '../../commons/styles/styles';
 import { Card } from '../../commons/card/card.component';
 import { CommonColors } from '../../commons/styles/colors';
+import { TechItem } from './Dashboard';
+import { librariesData } from './data';
 
-type TechItem = { title: string; img?: ImageSourcePropType; link: string };
-const data: TechItem[] = [
-  {
-    title: 'React Native',
-    link: 'https://reactnative.dev/',
-    img: {
-      uri: 'https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png',
-    },
-  },
-  {
-    title: 'Redux Toolkit 222223',
-    link: 'https://redux-toolkit.js.org/',
-    img: {
-      uri: 'https://hsto.org/r/w1560/getpro/habr/post_images/aad/f48/d2f/aadf48d2f864cef234b3b73d600dc8d1.jpg',
-    },
-  },
-  {
-    title: 'TypeScript',
-    link: 'https://www.typescriptlang.org/',
-    img: { uri: 'https://cdn-icons-png.flaticon.com/512/919/919832.png' },
-  },
-  {
-    title: 'i18Next',
-    link: 'https://www.i18next.com/',
-    img: { uri: 'https://avatars.githubusercontent.com/u/8546082?s=200&v=4' },
-  },
-  {
-    title: 'React-Query',
-    link: 'https://tanstack.com/query/latest',
-    img: { uri: 'https://seeklogo.com/images/R/react-query-logo-1340EA4CE9-seeklogo.com.png' },
-  },
-  {
-    title: 'Date-fns',
-    link: 'https://date-fns.org/',
-    img: { uri: 'https://images.opencollective.com/date-fns/8933591/logo.png' },
-  },
-];
 const cardSize = (Dimensions.get('screen').width - localStyles.content.paddingHorizontal * 2 - 4 * 2) / 4;
 const imageSize = cardSize - 3 * 10;
 
@@ -108,54 +70,43 @@ export const DashboardController = () => {
 
           <View>
             <FlatList
-              data={data}
+              data={librariesData}
               renderItem={renderItem}
               horizontal={true}
-              contentContainerStyle={{ gap: 10, paddingBottom: 10 }}
+              contentContainerStyle={localStyles.librariesCarousel}
             />
           </View>
-          <Card
-            contentStyle={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              gap: 1,
-            }}
-            style={{ flex: 0 }}>
+          <Card contentStyle={localStyles.buttonsCard} style={localStyles.cardLayout}>
             <Button title={'Button 1'} />
             <Button title={'Button 2'} />
             <Button title={'Button 3'} />
           </Card>
 
-          <Card
-            contentStyle={{ flex: 0, gap: 5, flexWrap: 'nowrap' }}
-            style={{ flex: 0 }}
-            headerText={t('Home.Libs.Header')}>
-            <View style={{ flexDirection: 'row', gap: 10 }}>
-              <View style={{ gap: 5 }}>
+          <Card contentStyle={localStyles.libCard} style={localStyles.cardLayout} headerText={t('Home.Libs.Header')}>
+            <View style={localStyles.libRow}>
+              <View style={localStyles.libItem}>
                 <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.ReactAndRedux_Header')}</Text>
                 <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.ReactAndRedux_Text')}</Text>
               </View>
 
-              <View style={{ gap: 5 }}>
+              <View style={localStyles.libItem}>
                 <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.Services_Header')}</Text>
                 <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.Services_Text')}</Text>
               </View>
 
-              <View style={{ gap: 5 }}>
+              <View style={localStyles.libItem}>
                 <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.UI_Header')}</Text>
                 <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.UI_Text')}</Text>
               </View>
             </View>
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <View style={{ gap: 5, width: '49%' }}>
+            <View style={localStyles.libRow}>
+              <View style={[localStyles.libItem, { width: '51%' }]}>
                 <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.Utils_Header')}</Text>
                 <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.Utils_Text')}</Text>
               </View>
 
-              <View style={{ gap: 5, width: '46%' }}>
+              <View style={[localStyles.libItem, { width: '49%' }]}>
                 <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.Network_Header')}</Text>
                 <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.Network_Text')}</Text>
               </View>
