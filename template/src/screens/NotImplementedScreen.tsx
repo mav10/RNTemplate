@@ -1,18 +1,19 @@
 import React from 'react';
 import { InformationScreenContainer } from '../commons/informationScreenContainer/informationScreenContainer.component';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { CommonColors } from '../commons/styles/colors';
+import { View } from 'react-native';
+import { useSafeAreContainerStyles } from '../commons/styles/styles';
 
 const notImplemntedAnimation = require('../../assets/animations/coding.json');
 
 export const NotImplementedScreen = () => {
+  const containerStyles = useSafeAreContainerStyles();
   return (
-    <SafeAreaView style={{ flexGrow: 1, flex: 1, justifyContent: 'center', backgroundColor: CommonColors.background }}>
+    <View style={containerStyles}>
       <InformationScreenContainer
         headerText={'Not implemented yet'}
         text={'Fucntionality not fully implemented yet'}
         lottieSource={notImplemntedAnimation}
       />
-    </SafeAreaView>
+    </View>
   );
 };

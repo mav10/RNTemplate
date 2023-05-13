@@ -4,7 +4,7 @@ import { CommonColors } from '../../commons/styles/colors';
 export const localStyles = StyleSheet.create({
   safeArea: { flexGrow: 1 },
   container: { flexGrow: 1, justifyContent: 'space-between', alignItems: 'stretch' },
-  content: { flex: 1, paddingHorizontal: 15, paddingVertical: 10, rowGap: 20 },
+  content: { flex: 1, rowGap: 20 },
   greeting: {
     justifyContent: 'flex-start',
   },

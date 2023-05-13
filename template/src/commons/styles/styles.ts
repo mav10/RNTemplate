@@ -1,9 +1,17 @@
 import { StyleSheet as styles } from 'react-native';
 import { CommonColors } from './colors';
 import { Fonts } from './fonts';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const uxTapZone = { top: 24, bottom: 24, left: 32, right: 32 };
-
+export const useSafeAreContainerStyles = () => {
+  const insets = useSafeAreaInsets();
+  return {
+    ...AppCommonStyles.container15,
+    paddingTop: AppCommonStyles.container15.paddingVertical + insets.top,
+    paddingBottom: AppCommonStyles.container15.paddingVertical + insets.bottom,
+  };
+};
 export const AppCommonStyles = styles.create({
   background: {
     backgroundColor: CommonColors.background,
@@ -102,5 +110,13 @@ export const AppCommonStyles = styles.create({
     fontFamily: Fonts.LIGHT,
     fontSize: 10,
     color: CommonColors.label,
+  },
+
+  container15: {
+    backgroundColor: CommonColors.background,
+    flexGrow: 1,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+    alignItems: 'center',
   },
 });
