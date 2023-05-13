@@ -9,6 +9,7 @@ import { NotImplementedScreen } from '../commons/NotImplementedScreen';
 import { AppRoutes } from './configuration/routes';
 import { ReactNativeScreen } from '../screens/ReactNative/ReactNativeScreen';
 import { navigationRef } from '../services/navigation-service';
+import { DashboardController } from '../screens/Dashboard/DashboardController';
 
 const screenOptions = {
   cardStyle: { backgroundColor: CommonColors.background },
@@ -31,8 +32,8 @@ export const ApplicationRouter = () => {
 
   return (
     <NavigationContainer linking={linking} ref={navigationRef} onReady={onReady}>
-      <RootStack.Navigator screenOptions={screenOptions} initialRouteName={AppRoutes.ReactNative}>
-        <RootStack.Screen name={AppRoutes.Dashboard} component={NotImplementedScreen} />
+      <RootStack.Navigator screenOptions={screenOptions} initialRouteName={AppRoutes.Dashboard}>
+        <RootStack.Screen name={AppRoutes.Dashboard} component={DashboardController} />
         <RootStack.Screen name={AppRoutes.ReactNative} component={ReactNativeScreen} />
       </RootStack.Navigator>
     </NavigationContainer>

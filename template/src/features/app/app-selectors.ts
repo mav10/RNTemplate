@@ -1,8 +1,5 @@
 import Config from 'react-native-config';
-import {
-  RootState,
-  useAppSelector,
-} from '../../appInfrastructure/redux-store/store-types';
+import { RootState, useAppSelector } from '../../appInfrastructure/redux-store/store-types';
 
 const versionSelector = (state: RootState) => state.app.codePushVersion;
 
