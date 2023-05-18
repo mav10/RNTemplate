@@ -8,8 +8,6 @@ declare module 'react-i18next' {
     // custom namespace type if you changed it
     defaultNS: typeof defaultNS;
     // custom resources type
-    resources: {
-      localization: LocalizedResourceDictionary;
-    };
+    resources: LocalizedResourceDictionary;
   }
 }

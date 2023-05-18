@@ -11,7 +11,7 @@ export const VersionComponent = (props: VersionComponentProps) => {
 
   return (
     <Text testID={`${props.testIdPrefix}versionText`} style={[localStyles.text, props.styles]}>
-      {t('App_Version', { version: versionText })}
+      {t('Common_App_Version', { version: versionText })}
     </Text>
   );
 };

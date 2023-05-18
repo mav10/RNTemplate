@@ -1,51 +1,35 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import { Image, Text, TouchableHighlight } from 'react-native';
-import { itemLocalStyles } from './languageSwitcher.styles';
-import { CommonColors } from '../../commons/styles/colors';
+import React, { useCallback } from 'react';
+import { Image, Pressable, Text } from 'react-native';
+import { itemButtonStyles, itemIconStyles, itemLocalStyles } from './languageSwitcher.styles';
 import { LanguageItemProps } from './languageSwitcher';
+import { getPressableStyles } from '../../commons/styles/styles';
 
-const checkIcon = require('../../../assets/images/check.png');
+const checkIcon = require('assets/images/check_20.png');
 
 export const LanguageItem = (props: LanguageItemProps) => {
-  const [pressed, setPressed] = useState<boolean>(false);
+  const getButtonStyle = useCallback(
+    (pressed: boolean) => {
+      return getPressableStyles(pressed, props.selected, itemLocalStyles.item, itemButtonStyles);
+    },
+    [props.selected]
+  );
 
-  const textStyles = useMemo(() => {
-    const base = [itemLocalStyles.itemText, {}];
-    if (props.selected) {
-      base.push(itemLocalStyles.selectedItem);
-    }
-
-    if (pressed) {
-      base.push({ color: CommonColors.accent });
-    }
-
-    return base;
-  }, [props.selected, pressed]);
-
-  const iconStyles = useMemo(() => {
-    return pressed ? itemLocalStyles.checkPressed : itemLocalStyles.check;
-  }, [pressed]);
-
-  const onPressIn = useCallback(() => {
-    setPressed(true);
-  }, []);
-
-  const onPressOut = useCallback(() => {
-    setPressed(false);
+  const getIconStyle = useCallback((pressed: boolean) => {
+    return getPressableStyles(pressed, false, itemLocalStyles.check, itemIconStyles);
   }, []);
 
   return (
-    <TouchableHighlight
-      style={[itemLocalStyles.listItem, props.itemStyles]}
+    <Pressable
+      testID={'languageSwitcher_item'}
+      style={({ pressed }) => getButtonStyle(pressed)}
       onPress={props.onPress}
-      onPressIn={onPressIn}
-      onPressOut={onPressOut}
-      disabled={props.disabled}
-      underlayColor={CommonColors.primary}>
-      <>
-        <Text style={[textStyles, props.textStyles]}>{props.text}</Text>
-        {props.selected && <Image source={checkIcon} style={iconStyles} />}
-      </>
-    </TouchableHighlight>
+      disabled={props.disabled}>
+      {({ pressed }) => (
+        <>
+          <Text style={[itemLocalStyles.text, props.textStyles]}>{props.text}</Text>
+          {props.selected && <Image source={checkIcon} style={getIconStyle(pressed)} />}
+        </>
+      )}
+    </Pressable>
   );
 };

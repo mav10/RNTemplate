@@ -1,12 +1,7 @@
 import { ImageSourcePropType, StyleProp, TextStyle, ViewStyle } from 'react-native';
 
+export type LanguageSWitcherProps = { styles?: StyleProp<ViewStyle>; testIdPrefix?: string };
 export type Language = { id: string; language: string };
-
-export type OwnState = {
-  languages: Language[];
-  isModalOpened: boolean;
-  selectedLanguageIndex: number;
-};
 
 export type LanguageItemProps = {
   selected: boolean;

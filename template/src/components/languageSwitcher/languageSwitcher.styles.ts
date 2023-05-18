@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { Fonts } from '../../commons/styles/fonts';
-import { CommonColors } from '../../commons/styles/colors';
-import { AppCommonStyles } from '../../commons/styles/styles';
+import { AdditionalButtonBackground, CommonColors } from '../../commons/styles/colors';
+import { AppCommonStyles, ButtonStateIconStyle, ButtonStateStyle } from '../../commons/styles/styles';
 
 export const localStyles = StyleSheet.create({
   languageButton: {
@@ -14,46 +13,67 @@ export const localStyles = StyleSheet.create({
   },
 
   text: {
-    ...AppCommonStyles.heading5,
+    ...AppCommonStyles.text,
     marginHorizontal: 5,
   },
 
   languageButtonImage: {
-    transform: [{ rotate: '180deg' }],
-    tintColor: CommonColors.text,
+    tintColor: '#7A8FE0',
   },
 
   modal: {
     justifyContent: 'flex-end',
     margin: 0,
   },
+  separator: {
+    height: 1,
+    width: '100%',
+    backgroundColor: CommonColors.listItemBorder,
+  },
 });
 
 export const itemLocalStyles = StyleSheet.create({
-  listItem: {
+  item: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 16,
+    paddingVertical: 16,
+    paddingLeft: 16,
+    paddingRight: 20,
   },
-  itemText: {
-    fontFamily: Fonts.REGULAR,
-    fontSize: 16,
-    lineHeight: 19,
-    paddingVertical: 18,
+
+  text: {
+    ...AppCommonStyles.heading4,
     color: CommonColors.text,
-  },
-  selectedItem: {
-    color: CommonColors.primary,
   },
 
   check: {
     resizeMode: 'contain',
-    tintColor: CommonColors.primary,
   },
+});
 
-  checkPressed: {
-    resizeMode: 'contain',
-    tintColor: CommonColors.accent,
+export const itemButtonStyles: ButtonStateStyle = StyleSheet.create({
+  enabled: {
+    backgroundColor: AdditionalButtonBackground.secondary.enabled,
   },
+  disabled: {
+    backgroundColor: AdditionalButtonBackground.secondary.disabled,
+  },
+  pushed: {
+    backgroundColor: AdditionalButtonBackground.secondary.pushed,
+  },
+  default: {},
+});
+
+export const itemIconStyles: ButtonStateIconStyle = StyleSheet.create({
+  enabled: {
+    tintColor: AdditionalButtonBackground.secondaryIcon.enabled,
+  },
+  disabled: {
+    tintColor: AdditionalButtonBackground.secondaryIcon.disabled,
+  },
+  pushed: {
+    tintColor: AdditionalButtonBackground.secondaryIcon.pushed,
+  },
+  default: {},
 });

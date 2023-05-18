@@ -1,0 +1,86 @@
+{
+  "Common_App": "RN Template App",
+  "Common_yes": "yes",
+  "Common_no": "no",
+  "Common_cancel": "cancel",
+  "Common_loading": "Loading...",
+  "Common_logout": "Log out",
+  "Common_back": "Back",
+  "Common_App_Version": "App version: {{version}}",
+  "Languages": {
+    "Header": "Language",
+    "Language": "The interface language is English",
+    "Items": {
+      "en": "English",
+      "de": "Deutsch",
+      "ru": "Russian"
+    }
+  },
+  "ApplicationStateScreens": {
+    "ErrorBoundary": {
+      "Header": "Oops,\nSomething went wrong...",
+      "Text": "An error has occurred. We apologise for any inconvenience this has caused!\nPress the button below to restart the app.\nHopefully we have already known that it happened and trying to fix it it.",
+      "SendReport": "Send to bug tracker",
+      "Button": "Restart"
+    },
+    "NoConnection": {
+      "Header": "No Internet connection",
+      "Text": "Check the internet connection and restart the app",
+      "Button": "Restart"
+    },
+    "ServerError": {
+      "Header": "Server is not responding",
+      "Text": "The server is temporarily unavailable\nPlease try to restart the app later",
+      "Button": "Try again"
+    },
+    "Update": {
+      "Modal": {
+        "Header": "A new update is available",
+        "Text": "A new update for the app is available! Do you want to update the app?",
+        "AgreeButton": "Update",
+        "CancelButton": "Remind me later"
+      },
+      "Mandatory": {
+        "Title": "Update the app",
+        "Text": "To continue working with the app, you need to install a new version",
+        "Button": "Update"
+      },
+      "Stores": {
+        "android_store": "https://play.google.com/store/apps/details?id=com.lmt.studyapp",
+        "apple_store": "itms-apps://apps.apple.com/de/app/lm-study/id1556811945?l=en"
+      }
+    },
+    "Maintenance": {
+      "Title": "We are sorry, the system is currently under maintenance",
+      "Text_WithoutDate": "The app is temporarily unavailable\nPlease try to launch it later",
+      "Text_WithDate": "The app is temporarily unavailable\nIt will become available in",
+      "Units": {
+        "day": "d",
+        "hour": "h",
+        "minute": "min"
+      }
+    }
+  },
+  "Login": {
+    "Header": "Log In",
+    "Text": "Click on button to simulate auth.\nYou can type any credentials - it is fake",
+    "Button": "Log in"
+  },
+  "Home": {
+    "Greeting": "Hello Bro!",
+    "Description": "It is a dashboard page",
+    "Libs": {
+      "Header": "Packages",
+      "ReactAndRedux_Header": "React-Redux",
+      "ReactAndRedux_Text": "- React-Native\n- Redux\n- Redux-persist\n- react-redux",
+      "Network_Header": "Network",
+      "Network_Text": "- Axios\n- React-native-netinfo\n- React-native-restart\n- react-query\n- react-query-nswag",
+      "UI_Header": "UI",
+      "UI_Text": "- React navigation\n- React-native-modals\n- React-native-bootsplash\n- SafeAreaContext\n- KeyboardAware",
+      "Services_Header": "Services",
+      "Services_Text": "- Sentry\n- Firebase\n- CodePush\n- Matomo",
+      "Utils_Header": "Utility",
+      "Utils_Text": "- i18next\n- Date-fns\n- React-native-config (ENV)\n- React-native-startup-time\n- React-native-make  (helper for app icons)\n- Why-did-you-render"
+    }
+  }
+}

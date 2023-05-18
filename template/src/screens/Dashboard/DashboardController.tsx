@@ -1,16 +1,5 @@
 import React, { useCallback } from 'react';
-import {
-  Button,
-  Dimensions,
-  FlatList,
-  Image,
-  Linking,
-  ListRenderItemInfo,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import { Button, Dimensions, FlatList, Image, Linking, ListRenderItemInfo, ScrollView, Text, View } from 'react-native';
 import { LanguageSwitcher } from '../../components/languageSwitcher/languageSwitcher.component';
 import { VersionComponent } from '../../components/version/version.component';
 import { localStyles } from './Dashboard.styles';
