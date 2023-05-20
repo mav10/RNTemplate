@@ -9,9 +9,9 @@ import { NativeModules, Platform } from 'react-native';
  * XCode 11 and iOS 13 workaround.
  */
 const systemLanguage: Language = (
-  Platform.OS === 'ios'
-    ? NativeModules?.SettingsManager?.settings.AppleLocale || NativeModules?.SettingsManager?.settings.AppleLanguages[0]
-    : NativeModules.I18nManager.localeIdentifier
+    Platform.OS === 'ios'
+        ? NativeModules?.SettingsManager?.settings.AppleLocale || NativeModules?.SettingsManager?.settings.AppleLanguages[0]
+        : NativeModules.I18nManager.localeIdentifier
 )?.substring(0, 2);
 
 export const languageDetector: LanguageDetectorAsyncModule = {
@@ -33,7 +33,7 @@ export const languageDetector: LanguageDetectorAsyncModule = {
       }
 
       logger().info(
-        `[Localization] System language (${systemLanguage}) is not supported by app. Select fallback language: "${fallbackLng}`
+          `[Localization] System language (${systemLanguage}) is not supported by app. Select fallback language: "${fallbackLng}`
       );
       return fallbackLng;
     } catch (e) {

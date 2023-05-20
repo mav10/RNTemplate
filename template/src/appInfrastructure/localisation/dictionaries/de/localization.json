@@ -10,7 +10,7 @@
   "Language": {
     "Header": "Sprache",
     "Language": "Die Sprache der Benutzeroberfläche ist Deutsch",
-    "Itens": {
+    "Items": {
       "en": "Englisch",
       "de": "Deutsch",
       "ru": "Russisch"
@@ -66,9 +66,9 @@
     "Text": "Klicken Sie auf die Schaltfläche, um die Authentifizierung zu simulieren.\nSie können beliebige Anmeldeinformationen eingeben – es ist eine Fälschung",
     "Button": "Anmelden"
   },
-  "Heim": {
-    "Gruß": "Hallo Bro!",
-    "Beschreibung": "Es handelt sich um eine Dashboard-Seite",
+  "Home": {
+    "Greeting": "Hallo Bro!",
+    "Description": "Es handelt sich um eine Dashboard-Seite",
     "Libs": {
       "Header": "Pakete",
       "ReactAndRedux_Header": "React-Redux",
@@ -80,38 +80,7 @@
       "Services_Header": "Dienste",
       "Services_Text": "- Sentry\n- Firebase\n- CodePush\n- Matomo",
       "Utils_Header": "Dienstprogramm",
-      "Utils_Text": "- i18next\n- Date-fns\n- React-native-config (ENV)\n- React-native-startup-time\n- React-native-make (Helfer für App-Symbole)\n - Warum-hast-du-gerendert?
-    }
-  },
-  "DevMode": {
-    "Hint_Header": "Hinweis",
-    "Hint_Text": "Sie können einen \"DevMode\" aktivieren, indem Sie zehnmal auf das Logo drücken.\n\n<0>Passwort: </0><1>{{password}}</1>",
-    "Header": "Bestätigung des Entwicklungsmodus",
-    "Beschreibung": "Sie werden das Entwicklermenü öffnen. Wenn Sie das Passwort kennen, geben Sie es ein. Wir hoffen, dass Sie wissen, was Sie tun",
-    "PasswordInput": "Entwickler-Zugriffspasswort",
-    "Login": "Anmelden (Dev-Modus)",
-    "PasswordPlaceholder": "Passwort",
-    "Logout": "Entwicklermodus abmelden",
-    "Benutzer": {
-      "Header": "Benutzerinformationen",
-      "Logout": "Abmelden",
-      "UserId": "<0>UserId:</0> {{value}}"
-    },
-    "App": {
-      "Header": "App-Info",
-      "Sprache": "<0>Die Sprache der Benutzeroberfläche:</0> Deutsch",
-      "Env": "<0>Umgebung:</0> {{value}}",
-      "Server": "<0>Server-URL:</0> {{value}}",
-      "AppVersion": "<0>Build-Version:</0> {{value}}",
-      "CodePush": "<0>CodePush-Version:</0> {{value}}",
-      "DevMode": "<0>Dev Mode:</0> {{value}}"
-    },
-    "Fehler": {
-      "Header": "Fehlertests",
-      "RequestWithToast": "Ungültige Anfrage (Toast)",
-      "Anfrage": "Ungültige Anfrage",
-      "JsCrash": "JS-Absturz",
-      "NativeCrash": "Native Absturz"
+      "Utils_Text": "- i18next\n- Date-fns\n- React-native-config (ENV)\n- React-native-startup-time\n- React-native-make (Helfer für App-Symbole)\n - Warum-hast-du-gerendert?"
     }
   }
 }

@@ -1,6 +1,16 @@
-import { StyleSheet } from 'react-native';
+import {ImageStyle, StyleProp, StyleSheet, ViewStyle} from 'react-native';
 import { AdditionalButtonBackground, CommonColors } from '../../commons/styles/colors';
-import { AppCommonStyles, ButtonStateIconStyle, ButtonStateStyle } from '../../commons/styles/styles';
+import { AppCommonStyles } from '../../commons/styles/styles';
+
+export type ButtonStateStyleType = 'enabled' | 'disabled' | 'pushed' | 'default';
+export type ButtonStateStyle = {
+  [key in ButtonStateStyleType]: StyleProp<ViewStyle>;
+};
+export type ButtonStateIconStyle = {
+  enabled: StyleProp<ImageStyle>;
+  disabled: StyleProp<ImageStyle>;
+  pushed: StyleProp<ImageStyle>;
+};
 
 export const localStyles = StyleSheet.create({
   languageButton: {

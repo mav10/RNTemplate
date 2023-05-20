@@ -3,29 +3,6 @@ import { CommonColors } from './colors';
 import { Fonts } from './fonts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export type ButtonStateStyleType = 'enabled' | 'disabled' | 'pushed' | 'default';
-export type ButtonStateStyle = {
-  [key in ButtonStateStyleType]: StyleProp<ViewStyle>;
-};
-export type ButtonStateIconStyle = {
-  enabled: StyleProp<ImageStyle>;
-  disabled: StyleProp<ImageStyle>;
-  pushed: StyleProp<ImageStyle>;
-};
-export function getPressableStyles<T, K>(
-  pressed: boolean,
-  selected: boolean,
-  baseStyles: StyleProp<K>,
-  stateStyles: T
-): StyleProp<K> {
-  const containerStyle: StyleProp<K>[] = [baseStyles, {} as Record<any, any>];
-
-  const buttonStateSelector = pressed ? 'pushed' : selected ? 'enabled' : 'default';
-  // @ts-ignore
-  containerStyle.push(stateStyles[buttonStateSelector]);
-  return containerStyle;
-}
-
 export const uxTapZone = { top: 24, bottom: 24, left: 32, right: 32 };
 export const useSafeAreContainerStyles = () => {
   const insets = useSafeAreaInsets();
