@@ -23,6 +23,18 @@ export const appSlice = createSlice({
         splashHidden: true,
       };
     },
+    enableDevMode: state => {
+      return {
+        ...state,
+        isDevMode: true,
+      }
+    },
+    disableDevMode: state => {
+      return {
+        ...state,
+        isDevMode: false,
+      }
+    }
   },
 });
 

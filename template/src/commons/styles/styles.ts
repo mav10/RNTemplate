@@ -117,6 +117,11 @@ export const AppCommonStyles = styles.create({
     flexGrow: 1,
     paddingHorizontal: 15,
     paddingVertical: 15,
-    alignItems: 'center',
+    alignItems: 'stretch',
+  },
+
+  modalButtons: {
+    marginTop: 32,
+    gap: 16,
   },
 });

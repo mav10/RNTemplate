@@ -4,16 +4,21 @@ import { useNavigation } from '@react-navigation/native';
 import { localStyles } from './backButton.styles';
 import { useTranslation } from 'react-i18next';
 import { AppCommonStyles, uxTapZone } from '../../commons/styles/styles';
+import { HeaderBackButtonProps } from '@react-navigation/native-stack/lib/typescript/src/types';
 
-const arrow = require('../../../assets/images/controls/arrow_right.png');
+const arrow = require('../../../assets/images/navigation/right_arrow_16.png');
 
-export const BackButton = () => {
+export const BackButton = (props: HeaderBackButtonProps) => {
   const navigation = useNavigation();
   const { t } = useTranslation();
 
   const onPrev = useCallback(() => {
     navigation.goBack();
   }, []);
+
+    if (!props.canGoBack) {
+        return <></>;
+    }
 
   return (
     <TouchableOpacity

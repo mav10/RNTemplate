@@ -10,7 +10,6 @@ import { Loader } from './components/loaders/loader.component';
 import axios from 'axios';
 import * as Interceptors from './helpers/axios-interceptors';
 import { RootStore } from './appInfrastructure/redux-store/root-store';
-import { useNotifications } from './appInfrastructure/push-notifications/useNotifications';
 import { useTranslation } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';

@@ -9,3 +9,7 @@ export const useAppVersionText = () => {
   const extraVersion = appVersion ? `(${appVersion.substr(1)})` : '';
   return `v.${Config.REACT_APP_VERSION_NAME}${extraVersion}`;
 };
+
+export const useDevModeEnabled = () => {
+  return useAppSelector(store => store.app.isDevMode);
+};

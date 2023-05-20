@@ -11,7 +11,6 @@ export const localStyles = StyleSheet.create({
   },
   image: {
     resizeMode: 'contain',
-    transform: [{ rotateY: '180deg' }],
     alignSelf: 'flex-start',
   },
   text: {

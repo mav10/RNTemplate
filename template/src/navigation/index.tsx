@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import { AppActions } from '../features/app/app-slice';
 import { useAppDispatch } from '../appInfrastructure/redux-store/store-types';
 import { LinkingOptions, NavigationContainer } from '@react-navigation/native';
-import { CommonColors } from '../commons/styles/colors';
 import { RootStackScreenParams } from './configuration/routeParams';
 import { RootStack } from './configuration/navigators';
 import { AppRoutes } from './configuration/routes';
@@ -11,11 +10,9 @@ import { TabNavigation } from './TabNavigation';
 import { NoConnectionController } from '../screens/NoConnection/NoConnectionController';
 import { NotImplementedScreen } from '../screens/NotImplementedScreen';
 import { useNetworkState } from '../appInfrastructure/hooks/useNetworkState';
-
-const screenOptions = {
-  cardStyle: { backgroundColor: CommonColors.background },
-  headerShown: false,
-};
+import { CommonScreenOptions, ScreenWithInfoOptions } from './configuration/headers';
+import { DevController } from '../screens/Dev/DevController';
+import { InfoController } from '../screens/Info/InfoController';
 
 const linking: LinkingOptions<RootStackScreenParams> = {
   prefixes: ['rntemplateapp://'],
@@ -33,14 +30,26 @@ export const ApplicationRouter = () => {
 
   return (
     <NavigationContainer linking={linking} ref={navigationRef} onReady={onReady}>
-      <RootStack.Navigator screenOptions={screenOptions} initialRouteName={AppRoutes.Home}>
-        <RootStack.Screen name={AppRoutes.Home} component={TabNavigation} />
-        <RootStack.Screen name={AppRoutes.NoConnection} component={NoConnectionController} />
-        <RootStack.Screen name={AppRoutes.Maintenance} component={NotImplementedScreen} />
+      <RootStack.Navigator screenOptions={CommonScreenOptions} initialRouteName={AppRoutes.Home}>
+        <RootStack.Screen name={AppRoutes.Home} options={ScreenWithInfoOptions} component={TabNavigation} />
+        <RootStack.Screen
+          name={AppRoutes.NoConnection}
+          options={{ headerShown: false }}
+          component={NoConnectionController}
+        />
+        <RootStack.Screen
+          name={AppRoutes.Maintenance}
+          options={{ headerShown: false }}
+          component={NotImplementedScreen}
+        />
         <RootStack.Screen name={AppRoutes.ServerError} component={NotImplementedScreen} />
-        <RootStack.Screen name={AppRoutes.MandatoryUpdate} component={NotImplementedScreen} />
-        <RootStack.Screen name={AppRoutes.DevScreen} component={NotImplementedScreen} />
-        <RootStack.Screen name={AppRoutes.Info} component={NotImplementedScreen} />
+        <RootStack.Screen
+          name={AppRoutes.MandatoryUpdate}
+          options={{ headerShown: false }}
+          component={NotImplementedScreen}
+        />
+        <RootStack.Screen name={AppRoutes.DevScreen} component={DevController} />
+        <RootStack.Screen name={AppRoutes.Info} component={InfoController} />
       </RootStack.Navigator>
       <HooksProvider />
     </NavigationContainer>

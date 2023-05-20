@@ -3,6 +3,7 @@ export type AppState = {
   codePushVersion: string | null;
   isInit: boolean;
   splashHidden: boolean;
+  isDevMode: boolean;
 };
 
 export const defaultAppState: AppState = {
@@ -10,4 +11,5 @@ export const defaultAppState: AppState = {
   codePushVersion: null,
   isInit: false,
   splashHidden: false,
+  isDevMode: false,
 };

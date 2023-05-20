@@ -16,7 +16,7 @@ export function navigate(parameters: { name: any; params: any }) {
 }
 
 /**
- * Helper for getting navigation-info out of react-context
+ * Helper for getting navigation-Info out of react-context
  */
 export function getCurrentRoute(): any {
   if (!navigationRef?.current) {

@@ -82,5 +82,12 @@
       "Utils_Header": "Utility",
       "Utils_Text": "- i18next\n- Date-fns\n- React-native-config (ENV)\n- React-native-startup-time\n- React-native-make  (helper for app icons)\n- Why-did-you-render"
     }
+  },
+  "AppInfo": {
+    "Name_Header": "Name",
+    "Name_Value": "$t(Common_App)",
+    "Version_Header": "Installed version",
+    "ReleaseDate_Header": "Release Date",
+    "Vendor_Value": "Maxim Vasin"
   }
 }
