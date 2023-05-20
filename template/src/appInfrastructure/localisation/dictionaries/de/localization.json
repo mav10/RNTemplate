@@ -3,6 +3,7 @@
   "Common_yes": "ja",
   "Common_no": "nein",
   "Common_cancel": "Abbrechen",
+  "Common_ok": "ok",
   "Common_loading": "Laden…",
   "Common_logout": "Abmelden",
   "Common_back": "Zurück",
@@ -61,7 +62,7 @@
       }
     }
   },
-  "Anmeldung": {
+  "Login": {
     "Header": "Anmelden",
     "Text": "Klicken Sie auf die Schaltfläche, um die Authentifizierung zu simulieren.\nSie können beliebige Anmeldeinformationen eingeben – es ist eine Fälschung",
     "Button": "Anmelden"
@@ -69,6 +70,28 @@
   "Home": {
     "Greeting": "Hallo Bro!",
     "Description": "Es handelt sich um eine Dashboard-Seite",
+    "Buttons": {
+      "Template": "Template",
+      "Auth": "Authorization",
+      "Dev": "Dev mode"
+    },
+    "Modals": {
+      "Template": {
+        "Header": "Template description",
+        "Text": "It is custom boilerplate RN template.\nEverything already is here. You don't need wasting time for configuring, redux, env variables, tests, bootsplash etc.\n\nJust remove some dummy screens and non going for use code and start new awesome project",
+        "Ok_button": "$(Common_ok)"
+      },
+      "Auth": {
+        "Header": "Authentication",
+        "Text": "It does NOT use any authorization (with server) - it only simulates - store fake auth-token in async-storage.\n\nYou can navigate to profile and if you are not authorized yet - you can type hardcoded credentials.\nP.S. it is done juts to demonstrate how navigator works and how you can handle authorization flow.",
+        "Ok_button": "Navigate to profile"
+      },
+      "Dev": {
+        "Header": "Developer menu",
+        "Text": "This template (app) has hidden screens which is available by tapping 7-10 click on LOGO in \"App info\" screen. I- symbol in top right corner.\n\n It is usuful to test or simulate some things which shouldn't be available for end-user.",
+        "Ok_button": "Navigate to dev menu"
+      }
+    },
     "Libs": {
       "Header": "Pakete",
       "ReactAndRedux_Header": "React-Redux",

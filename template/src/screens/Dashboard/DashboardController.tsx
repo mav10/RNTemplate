@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Button, Dimensions, FlatList, Image, Linking, ListRenderItemInfo, ScrollView, Text, View } from 'react-native';
 import { LanguageSwitcher } from '../../components/languageSwitcher/languageSwitcher.component';
 import { VersionComponent } from '../../components/version/version.component';
@@ -10,6 +10,11 @@ import { CommonColors } from '../../commons/styles/colors';
 import { TechItem } from './Dashboard';
 import { librariesData } from './data';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useModal } from '../../appInfrastructure/hooks/useModal';
+import { AppModal, AppSwipeModal } from '../../commons/modal/modal.container';
+import { ButtonComponent } from '../../commons/buttons/button.component';
+import { useRootNavigation, useTabNavigation } from '../../navigation/configuration/navigators';
+import { AppRoutes } from '../../navigation/configuration/routes';
 
 const cardSize = (Dimensions.get('screen').width - AppCommonStyles.container15.paddingHorizontal * 2 - 4 * 2) / 4;
 const imageSize = cardSize - 3 * 10;
@@ -17,6 +22,68 @@ const imageSize = cardSize - 3 * 10;
 export const DashboardController = () => {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
+  const tabNavigation = useTabNavigation();
+  const rootNavigation = useRootNavigation();
+
+  const templateModal = useModal();
+  const authModal = useModal();
+  const demoModal = useModal();
+
+  const modals = useMemo(() => {
+    return (
+      <>
+        <AppModal
+          isVisible={templateModal.visible}
+          onClose={templateModal.closeModal}
+          headerText={t('Home.Modals.Template.Header')}>
+          <Text>{t('Home.Modals.Template.Text')}</Text>
+          <View style={AppCommonStyles.modalButtons}>
+            <ButtonComponent type={'secondary'} label={t('Common_cancel')} onPress={templateModal.closeModal} />
+            <ButtonComponent
+              type={'primary'}
+              label={t('Home.Modals.Template.Ok_button')}
+              onPress={templateModal.closeModal}
+            />
+          </View>
+        </AppModal>
+        <AppModal
+          isVisible={authModal.visible}
+          onClose={authModal.closeModal}
+          headerText={t('Home.Modals.Auth.Header')}>
+          <Text>{t('Home.Modals.Auth.Text')}</Text>
+          <View style={AppCommonStyles.modalButtons}>
+            <ButtonComponent type={'secondary'} label={t('Common_cancel')} onPress={authModal.closeModal} />
+            <ButtonComponent
+              type={'primary'}
+              label={t('Home.Modals.Auth.Ok_button')}
+              onPress={() => {
+                tabNavigation.navigate(AppRoutes.Profile);
+                authModal.closeModal();
+              }}
+            />
+          </View>
+        </AppModal>
+        <AppSwipeModal
+          isVisible={demoModal.visible}
+          onClose={demoModal.closeModal}
+          headerText={t('Home.Modals.Dev.Header')}>
+          <View style={{ paddingHorizontal: 15 }}>
+            <Text>{t('Home.Modals.Dev.Text')}</Text>
+            <View style={AppCommonStyles.modalButtons}>
+              <ButtonComponent
+                type={'primary'}
+                label={t('Home.Modals.Dev.Ok_button')}
+                onPress={() => {
+                  rootNavigation.navigate(AppRoutes.DevScreen);
+                  demoModal.closeModal();
+                }}
+              />
+            </View>
+          </View>
+        </AppSwipeModal>
+      </>
+    );
+  }, [demoModal, templateModal, authModal]);
 
   const renderItem = useCallback((item: ListRenderItemInfo<TechItem>) => {
     const {
@@ -72,9 +139,9 @@ export const DashboardController = () => {
           />
         </View>
         <Card contentStyle={localStyles.buttonsCard} style={localStyles.cardLayout}>
-          <Button title={'Button 1'} />
-          <Button title={'Button 2'} />
-          <Button title={'Button 3'} />
+          <Button title={t('Home.Buttons.Template')} onPress={templateModal.openModal} />
+          <Button title={t('Home.Buttons.Auth')} onPress={authModal.openModal} />
+          <Button title={t('Home.Buttons.Dev')} onPress={demoModal.openModal} />
         </Card>
 
         <Card contentStyle={localStyles.libCard} style={localStyles.cardLayout} headerText={t('Home.Libs.Header')}>
@@ -113,6 +180,8 @@ export const DashboardController = () => {
         <LanguageSwitcher />
         <VersionComponent />
       </View>
+
+      {modals}
     </ScrollView>
   );
 };
