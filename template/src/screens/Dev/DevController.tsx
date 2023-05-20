@@ -18,7 +18,7 @@ import { notificationService } from '../../services';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import { useModal } from '../../appInfrastructure/hooks/useModal';
-import { AppModal, SwipeModal } from '../../commons/modal/modal.container';
+import { AppModal, AppSwipeModal } from '../../commons/modal/modal.container';
 import { onlineManager, useIsFetching } from '@tanstack/react-query';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { AppRoutes } from '../../navigation/configuration/routes';
@@ -159,7 +159,7 @@ export const DevController = () => {
           </View>
         </AppModal>
 
-        <SwipeModal
+        <AppSwipeModal
           isVisible={swipeModalManager.visible}
           onClose={swipeModalManager.closeModal}
           headerText={'Internal swipe modal'}
@@ -170,7 +170,7 @@ export const DevController = () => {
               interaction with our modal manager.
             </Text>
           </View>
-        </SwipeModal>
+        </AppSwipeModal>
 
         <AppModal isVisible={classicModalManager.visible} onClose={classicModalManager.closeModal}>
           <View style={localStyles.swipeModalContent}>

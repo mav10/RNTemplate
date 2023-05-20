@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useCallback } from 'react';
 import { FlatList, Image, ListRenderItemInfo, Text, TouchableOpacity, View } from 'react-native';
-import { SwipeModal } from '../../commons/modal/modal.container';
+import { AppSwipeModal } from '../../commons/modal/modal.container';
 import { localStyles } from './languageSwitcher.styles';
 import { LanguageItem } from './languageItem.component';
 import { useModal } from '../../appInfrastructure/hooks/useModal';
@@ -65,7 +65,7 @@ export const LanguageSwitcher: React.FC<LanguageSWitcherProps> = (props: Languag
         <Image source={imgLanguageSwitcherIcon} style={localStyles.languageButtonImage} />
       </TouchableOpacity>
 
-      <SwipeModal isVisible={visible} onClose={closeModal} headerText={i18n.t('Header')}>
+      <AppSwipeModal isVisible={visible} onClose={closeModal} headerText={i18n.t('Header')}>
         <FlatList
           data={Languages}
           renderItem={renderItem}
@@ -74,7 +74,7 @@ export const LanguageSwitcher: React.FC<LanguageSWitcherProps> = (props: Languag
           testID={`${props.testIdPrefix}_languageSwitcher_items`}
           ItemSeparatorComponent={LanguageSwitcherSeparator}
         />
-      </SwipeModal>
+      </AppSwipeModal>
     </View>
   );
 };

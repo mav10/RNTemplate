@@ -19,6 +19,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AppCommonStyles } from './commons/styles/styles';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClientInstance } from './services';
+import { ModalPresenterProvider } from './context/ModalPresenter.provider';
 
 axios.interceptors.request.use(Interceptors.injectAppVersionToHeaders(RootStore.store.getState));
 axios.interceptors.request.use(Interceptors.injectLanguageInterceptor);
@@ -34,14 +35,16 @@ const Root = () => {
 
   return (
     <Suspense fallback={loading}>
-      <Provider store={RootStore.store}>
-        <PersistGate persistor={RootStore.persistor}>
-          <CodePushProvider>
-            <ApplicationRouter />
-            <SplashScreen />
-          </CodePushProvider>
-        </PersistGate>
-      </Provider>
+      <ModalPresenterProvider>
+        <Provider store={RootStore.store}>
+          <PersistGate persistor={RootStore.persistor}>
+            <CodePushProvider>
+              <ApplicationRouter />
+              <SplashScreen />
+            </CodePushProvider>
+          </PersistGate>
+        </Provider>
+      </ModalPresenterProvider>
     </Suspense>
   );
 };

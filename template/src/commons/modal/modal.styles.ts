@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { CommonColors } from '../styles/colors';
-import { Fonts } from '../styles/fonts';
+import { AppCommonStyles } from '../styles/styles';
+
+const DESIGNED_PADDING = 16;
 
 export const localStyles = StyleSheet.create({
   modalContainer: {
@@ -10,52 +12,72 @@ export const localStyles = StyleSheet.create({
     margin: 0,
     padding: 0,
   },
+  container: {
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignSelf: 'stretch',
+    backgroundColor: CommonColors.background,
+
+    marginHorizontal: DESIGNED_PADDING,
+    borderRadius: 10,
+  },
+
+  content: {
+    padding: DESIGNED_PADDING,
+  },
+
+  swipeContent: {
+    paddingHorizontal: 0,
+  },
+
   swipeModalContainer: {
     justifyContent: 'flex-end',
     margin: 0,
     marginTop: 150,
   },
-  container: {
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignSelf: 'center',
-    backgroundColor: CommonColors.background,
-
-    marginHorizontal: 26,
-    borderRadius: 25,
-  },
   swipeContentContainer: {
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
+
+    alignSelf: 'stretch',
+    marginHorizontal: 0,
   },
+
   header: {
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-  },
-  headerContent: {
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    paddingHorizontal: DESIGNED_PADDING,
+    paddingTop: DESIGNED_PADDING,
 
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignItems: 'center',
+    columnGap: 8,
+  },
 
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    backgroundColor: CommonColors.primaryButton,
-    zIndex: 2,
+  headerLeftContainer: {
+    flexDirection: 'row',
+    flex: 1,
+    columnGap: 8,
   },
-  headerText: {
-    fontFamily: Fonts.REGULAR,
-    fontSize: 26,
-    color: CommonColors.background,
-    textAlign: 'center',
-  },
+
   icon: {
-    marginBottom: 9,
+    resizeMode: 'contain',
   },
-  content: {
-    marginVertical: 20,
-    paddingHorizontal: 20,
+
+  headerText: {
+    ...AppCommonStyles.heading4,
+    flex: 1,
+  },
+
+  swipeHeaderText: {
+    ...AppCommonStyles.heading2,
+  },
+
+  swipeModalButton: {
+    borderRadius: 6,
+    backgroundColor: CommonColors.lightGray,
+    height: 3,
+    width: '21%',
+    margin: 8,
+    alignSelf: 'center',
   },
 });
