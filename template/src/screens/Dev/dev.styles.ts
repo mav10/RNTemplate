@@ -7,11 +7,16 @@ export const localStyles = StyleSheet.create({
     justifyContent: 'center',
     margin: 8,
   },
+  devAuthContainer: { paddingHorizontal: 0 },
+  devLoginContainer: { flex: 2, justifyContent: 'center' },
+  devLoginFooter: { flex: 1, justifyContent: 'flex-end' },
   footer: { alignItems: 'center', flex: 1, justifyContent: 'flex-end' },
+
   header: {
     marginBottom: 20,
     textAlign: 'center',
   },
+
   inputContainerStyles: {
     marginBottom: 20,
     marginTop: 30,
@@ -48,9 +53,7 @@ export const localStyles = StyleSheet.create({
     paddingHorizontal: 0,
     paddingTop: 8,
   },
-
   scrollViewStyle: { flexGrow: 1 },
-
   swipeModalContent: { paddingHorizontal: 15 },
   textItem: {
     ...AppCommonStyles.caption,

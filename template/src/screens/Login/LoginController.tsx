@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, Image, KeyboardAvoidingView, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, KeyboardAvoidingView, View } from 'react-native';
 import { CustomTextInput } from '../../commons/input/customTextInput.component';
 import { useScopedTranslation } from '../../appInfrastructure/localisation/useScopedTranslation';
 import { localStyles } from './Login.styles';

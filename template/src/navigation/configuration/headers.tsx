@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRootNavigation } from './navigators';
 import { AppRoutes } from './routes';
 import { uxTapZone } from '../../commons/styles/styles';
@@ -18,7 +19,7 @@ const InfoIcon = () => {
 
   return (
     <Pressable onPress={onNavigate} hitSlop={uxTapZone} testID={'Information_button'}>
-      {({ pressed }) => <Image resizeMode={'contain'} source={infoIcon} alt={'Info icon'} />}
+      <Image resizeMode={'contain'} source={infoIcon} alt={'Info icon'} />
     </Pressable>
   );
 };

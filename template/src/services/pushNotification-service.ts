@@ -22,6 +22,7 @@ export class NotificationService {
   public async sendNotificationTokenToServer() {
     if (this.isEnabled) {
       const token = await messaging().getToken();
+      console.log('Token:', token);
       // TODO: send token to backend
       // await NotificationQuery.Client.savePushToken(token);
     } else {

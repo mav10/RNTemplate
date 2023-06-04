@@ -32,9 +32,6 @@ export const TabBarIcon = (props: {
 };
 
 const localStyles = StyleSheet.create({
-  active: {
-    opacity: 0.7,
-  },
   base: {
     height: 25,
     opacity: 0.85,

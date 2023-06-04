@@ -23,7 +23,7 @@ export const localStyles = StyleSheet.create({
   },
 
   languageButtonImage: {
-    tintColor: '#7A8FE0',
+    tintColor: AdditionalButtonBackground.primary.enabled,
   },
 
   modal: {

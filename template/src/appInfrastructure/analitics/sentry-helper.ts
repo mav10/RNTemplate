@@ -2,6 +2,7 @@ import { NavigationState } from '@react-navigation/native';
 import Config from 'react-native-config';
 import { logger } from '../logging/logging';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function toFlatStateList(state: NavigationState): NavigationState[] {
   const currentRoute = state.routeNames[state.index];
   const possibleDeepRoute = state.routes.find(x => x.name === currentRoute)?.state;
@@ -16,7 +17,7 @@ function toFlatStateList(state: NavigationState): NavigationState[] {
 }
 
 export const initializeSentry = () => {
-  const { REACT_APP_SENTRY_DSN, REACT_APP_APP_ENV } = Config;
+  const { REACT_APP_SENTRY_DSN } = Config;
   if (typeof REACT_APP_SENTRY_DSN === 'string' && REACT_APP_SENTRY_DSN.length > 0) {
     if (__DEV__) {
       logger().info('Sentry configuration will be ignored because of DEBUG.');
@@ -42,6 +43,7 @@ export const initializeSentry = () => {
 };
 
 export const SetCodePushVersionIntoSentry = (version: string | undefined) => {
+  logger().info('Set code push version to sentry tags: ' + version);
   // setExtra('code_push_version', version || 'bare');
 };
 

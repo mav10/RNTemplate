@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { TabNavigator } from './configuration/navigators';
 import { AppRoutes } from './configuration/routes';

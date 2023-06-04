@@ -43,7 +43,7 @@ export const localStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    color: '#333',
+    color: CommonColors.text,
     fontSize: 24,
     fontWeight: '700',
     lineHeight: 30,

@@ -45,7 +45,7 @@ export const DevController = () => {
   const isDevAuth = useDevModeEnabled();
   const isAuth = false;
   const dispatch = useDispatch();
-  const { t, i18n } = useTranslation(['dev']);
+  const { t } = useTranslation(['dev']);
   const remoteAppVersions = 'none'; // QueryFactory.VersionQuery.useAppVersionQuery();
   const serverVersions = 'none'; // QueryFactory.VersionQuery.useVersionQuery();
   const maintenanceInfo = 'none'; // QueryFactory.VersionQuery.useMaintenanceQuery();
@@ -120,7 +120,7 @@ export const DevController = () => {
         behavior={'position'}
         contentContainerStyle={localStyles.loginSceneContainer}
         style={localStyles.scrollView}>
-        <View style={{ flex: 2, justifyContent: 'center' }}>
+        <View style={localStyles.devLoginContainer}>
           <Text style={[AppCommonStyles.heading1, localStyles.header]}>{t('DevMode.Header')}</Text>
           <Text style={AppCommonStyles.caption}>{t('DevMode.Description')}</Text>
 
@@ -135,7 +135,7 @@ export const DevController = () => {
             secureTextEntry={true}
           />
         </View>
-        <View style={{ justifyContent: 'flex-end', flex: 1 }}>
+        <View style={localStyles.devLoginFooter}>
           <ButtonComponent type={'primary'} label={t('DevMode.Login')} onPress={handlePassword} />
         </View>
       </KeyboardAvoidingView>
@@ -154,7 +154,7 @@ export const DevController = () => {
           }>
           <Text style={AppCommonStyles.paragraphText}>
             This is a our styled modal. We use it everywhere in the app. Also these modals have modal manager that helps
-            us to control their appearance. It is very useful when we want (or even don't expect) to display two modals
+            us to control their appearance. It is very useful when we want (or even do not expect) to display two modals
             simultaneously. On iOS it is impossible so we have kinda stack (or if to be clear - queue) of modals. Modals
             will appear obe-by-one in order of displaying (triggering).
           </Text>
@@ -171,7 +171,7 @@ export const DevController = () => {
           icon={modalIcon}>
           <View style={localStyles.swipeModalContent}>
             <Text style={AppCommonStyles.paragraphText}>
-              This is a our another styled modal - "Swipable" one. We also use it everywhere in the app.And i also has
+              This is a our another styled modal - Swipable one. We also use it everywhere in the app.And i also has
               interaction with our modal manager.
             </Text>
           </View>
@@ -180,7 +180,7 @@ export const DevController = () => {
         <AppModal isVisible={classicModalManager.visible} onClose={classicModalManager.closeModal}>
           <View style={localStyles.swipeModalContent}>
             <Text style={AppCommonStyles.paragraphText}>
-              This is bare modal implementation from `react-native-modal` package. We don't add manager here and don't
+              This is bare modal implementation from `react-native-modal` package. We do not add manager here and do not
               add extra settings
             </Text>
           </View>
@@ -342,7 +342,9 @@ export const DevController = () => {
   };
 
   return (
-    <SafeAreaView style={[AppCommonStyles.container15, isDevAuth ? { paddingHorizontal: 0 } : {}]} edges={['bottom']}>
+    <SafeAreaView
+      style={[AppCommonStyles.container15, isDevAuth ? localStyles.devAuthContainer : {}]}
+      edges={['bottom']}>
       {isDevAuth ? content() : devLoginForm()}
     </SafeAreaView>
   );

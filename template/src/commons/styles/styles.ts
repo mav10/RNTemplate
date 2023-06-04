@@ -1,4 +1,4 @@
-import { ImageStyle, StyleProp, StyleSheet as styles, ViewStyle } from 'react-native';
+import { StyleSheet as styles } from 'react-native';
 import { CommonColors } from './colors';
 import { Fonts } from './fonts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';

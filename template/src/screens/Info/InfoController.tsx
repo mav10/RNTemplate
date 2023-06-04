@@ -22,7 +22,7 @@ export const InfoController = () => {
 
   return (
     <SafeAreaView
-      style={[AppCommonStyles.container, { alignItems: 'stretch', paddingBottom: -bottomInset }]}
+      style={[AppCommonStyles.container, localStyles.safeAreaLayout, { paddingBottom: -bottomInset }]}
       edges={['bottom']}>
       <ScrollView
         contentContainerStyle={[localStyles.layout, { paddingBottom: bottomInset + localStyles.layout.paddingBottom }]}

@@ -14,7 +14,7 @@ export const BackButton = (props: HeaderBackButtonProps) => {
 
   const onPrev = useCallback(() => {
     navigation.goBack();
-  }, []);
+  }, [navigation]);
 
   if (!props.canGoBack) {
     return <></>;

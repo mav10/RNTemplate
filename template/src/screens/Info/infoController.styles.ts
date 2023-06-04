@@ -24,6 +24,9 @@ export const localStyles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 32,
   },
+  safeAreaLayout: {
+    alignItems: 'stretch',
+  },
   section: {
     gap: 20,
   },

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useCallback, useMemo } from 'react';
 import { Button, Dimensions, FlatList, Image, Linking, ListRenderItemInfo, ScrollView, Text, View } from 'react-native';
 import { LanguageSwitcher } from '../../components/languageSwitcher/languageSwitcher.component';
@@ -83,7 +84,7 @@ export const DashboardController = () => {
         </AppSwipeModal>
       </>
     );
-  }, [demoModal, templateModal, authModal]);
+  }, [templateModal.visible, templateModal.closeModal, t, authModal, demoModal, tabNavigation, rootNavigation]);
 
   const renderItem = useCallback((item: ListRenderItemInfo<TechItem>) => {
     const {

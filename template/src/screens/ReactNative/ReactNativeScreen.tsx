@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -9,7 +10,7 @@
  */
 
 import React, { PropsWithChildren } from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View } from 'react-native';
+import { ScrollView, StatusBar, Text, useColorScheme, View } from 'react-native';
 import {
   Colors,
   DebugInstructions,
@@ -69,8 +70,10 @@ export const ReactNativeScreen = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen and then come back to see your
-            edits.
+            <Text>
+              Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen and then come back to see your
+              edits.
+            </Text>
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
@@ -78,7 +81,9 @@ export const ReactNativeScreen = () => {
           <Section title="Debug">
             <DebugInstructions />
           </Section>
-          <Section title="Learn More">Read the docs to discover what to do next:</Section>
+          <Section title="Learn More">
+            <Text>Read the docs to discover what to do next:</Text>
+          </Section>
           <LearnMoreLinks />
         </View>
       </ScrollView>

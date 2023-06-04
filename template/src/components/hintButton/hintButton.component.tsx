@@ -1,6 +1,6 @@
+/* eslint-disable react-native/no-inline-styles,react-native/no-color-literals */
 import React from 'react';
 import { Image, Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { localStyles } from './hintButton.styles';
 import { Trans, useTranslation } from 'react-i18next';
 import { AppCommonStyles, uxTapZone } from '../../commons/styles/styles';
@@ -12,7 +12,6 @@ import Config from 'react-native-config';
 const question = require('../../../assets/images/question.png');
 
 export const HintButton = () => {
-  const navigation = useNavigation();
   const { t } = useTranslation();
   const { visible, openModal, closeModal } = useModal('CLOSED');
 

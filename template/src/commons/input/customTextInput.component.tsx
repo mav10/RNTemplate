@@ -22,3 +22,5 @@ export const CustomTextInput = React.forwardRef<TextInput, CustomTextInputProps>
     </View>
   );
 });
+
+CustomTextInput.displayName = 'CustomTextInput';

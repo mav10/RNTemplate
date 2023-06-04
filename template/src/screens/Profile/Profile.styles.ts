@@ -27,6 +27,7 @@ export const localStyles = StyleSheet.create({
     marginBottom: 20,
   },
   iconStyle: { tintColor: CommonColors.primary },
+  profileIcon: { height: 50, tintColor: CommonColors.text, width: 50 },
   section: {
     gap: 5,
   },

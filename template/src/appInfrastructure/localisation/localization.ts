@@ -3,7 +3,6 @@ import { languageDetector } from './languageDetector';
 import i18n from 'i18next';
 import { dateLocales, defaultNS, fallbackLng, Language, Languages, Namespaces, Resources } from './locales';
 import intervalPlural from 'i18next-intervalplural-postprocessor';
-import { setLocale } from '../../helpers/date-helper';
 
 export function initializeLocalization(): Promise<any> {
   return i18n

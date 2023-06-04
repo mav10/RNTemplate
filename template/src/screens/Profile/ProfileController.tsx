@@ -21,12 +21,12 @@ export const ProfileController = () => {
 
   const onLogout = useCallback(() => {
     dispatch(AuthActions.logout());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ScrollView style={localStyles.container} contentContainerStyle={localStyles.content}>
       <View style={localStyles.header}>
-        <Image source={profileIcon} style={{ width: 50, height: 50, tintColor: '#333' }} />
+        <Image source={profileIcon} style={localStyles.profileIcon} />
         <Text style={AppCommonStyles.heading3}>{'username'}</Text>
       </View>
 
