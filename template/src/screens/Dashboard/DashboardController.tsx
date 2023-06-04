@@ -111,6 +111,7 @@ export const DashboardController = () => {
 
   return (
     <ScrollView
+      showsVerticalScrollIndicator={false}
       contentContainerStyle={[
         AppCommonStyles.container15,
         localStyles.container,
