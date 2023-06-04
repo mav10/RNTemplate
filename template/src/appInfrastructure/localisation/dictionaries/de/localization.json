@@ -1,0 +1,109 @@
+{
+  "Common_App": "RN-Vorlagen-App",
+  "Common_yes": "ja",
+  "Common_no": "nein",
+  "Common_cancel": "Abbrechen",
+  "Common_ok": "ok",
+  "Common_loading": "Laden…",
+  "Common_logout": "Abmelden",
+  "Common_back": "Zurück",
+  "Common_App_Version": "App-Version: {{version}}",
+  "Language": {
+    "Header": "Sprache",
+    "Language": "Die Sprache der Benutzeroberfläche ist Deutsch",
+    "Items": {
+      "en": "Englisch",
+      "de": "Deutsch",
+      "ru": "Russisch"
+    }
+  },
+  "ApplicationStateScreens": {
+    "ErrorBoundary": {
+      "Header": "Oops,\nEtwas ist schief gelaufen...",
+      "Text": "Ein Fehler ist aufgetreten. Wir entschuldigen uns für die Unannehmlichkeiten, die dadurch entstanden sind!\nDrücken Sie auf die Schaltfläche unten, um die App neu zu starten.\nHoffentlich wissen wir bereits, dass der Fehler aufgetreten ist und versuchen, ihn zu beheben.",
+      "SendReport": "An Bug-Tracker senden",
+      "Button": "Neu starten"
+    },
+    "NoConnection": {
+      "Header": "Keine Internetverbindung",
+      "Text": "Überprüfen Sie die Internetverbindung und starten Sie die App neu",
+      "Button": "Neu starten"
+    },
+    "ServerError": {
+      "Header": "Server reagiert nicht",
+      "Text": "Der Server ist vorübergehend nicht verfügbar\nBitte versuchen Sie später, die App neu zu starten",
+      "Button": "Neu versuchen"
+    },
+    "Update": {
+      "Modal": {
+        "Header": "Ein neues Update ist verfügbar",
+        "Text": "Ein neues Update für die App ist verfügbar! Möchten Sie die App aktualisieren?",
+        "AgreeButton": "Aktualisieren",
+        "CancelButton": "Später erinnern"
+      },
+      "Mandatory": {
+        "Title": "Aktualisierien Sie die App",
+        "Text": "Um mit der App weiterarbeiten zu können, müssen Sie eine neue Version der App installieren",
+        "Button": "Aktualisieren"
+      },
+      "Stores": {
+        "android_store": "https://play.google.com/store/apps/details?id=com.lmt.studyapp",
+        "apple_store": "itms-apps://apps.apple.com/de/app/lm-study/id1556811945?l=de"
+      }
+    },
+    "Maintenance": {
+      "Title": "Es tut uns leid, das System wird gerade gewartet",
+      "Text_WithoutDate": "Die App ist vorübergehend nicht verfügbar\nBitte versuchen Sie es später erneut",
+      "Text_WithDate": "Die App ist vorübergehend nicht verfügbar\nEs wird verfügbar sein in",
+      "Units": {
+        "day": "d",
+        "hour": "h",
+        "minute": "min"
+      }
+    }
+  },
+  "Login": {
+    "Header": "Anmelden",
+    "Text": "Klicken Sie auf die Schaltfläche, um die Authentifizierung zu simulieren.\nSie können beliebige Anmeldeinformationen eingeben – es ist eine Fälschung",
+    "Button": "Anmelden"
+  },
+  "Home": {
+    "Greeting": "Hallo Bro!",
+    "Description": "Es handelt sich um eine Dashboard-Seite",
+    "Buttons": {
+      "Template": "Template",
+      "Auth": "Authorization",
+      "Dev": "Dev mode"
+    },
+    "Modals": {
+      "Template": {
+        "Header": "Template description",
+        "Text": "It is custom boilerplate RN template.\nEverything already is here. You don't need wasting time for configuring, redux, env variables, tests, bootsplash etc.\n\nJust remove some dummy screens and non going for use code and start new awesome project",
+        "Ok_button": "$t(Common_ok)"
+      },
+      "Auth": {
+        "Header": "Authentication",
+        "Text": "It does NOT use any authorization (with server) - it only simulates - store fake auth-token in async-storage.\n\nYou can navigate to profile and if you are not authorized yet - you can type hardcoded credentials.\nP.S. it is done juts to demonstrate how navigator works and how you can handle authorization flow.",
+        "Ok_button": "Navigate to profile"
+      },
+      "Dev": {
+        "Header": "Developer menu",
+        "Text": "This template (app) has hidden screens which is available by tapping 7-10 click on LOGO in \"App info\" screen. I- symbol in top right corner.\n\n It is usuful to test or simulate some things which shouldn't be available for end-user.",
+        "Ok_button": "Navigate to dev menu"
+      }
+    },
+    "Libs": {
+      "Header": "Pakete",
+      "ReactAndRedux_Header": "React-Redux",
+      "ReactAndRedux_Text": "- React-Native\n- Redux\n- Redux-persist\n- reagieren-redux",
+      "Network_Header": "Netzwerk",
+      "Network_Text": "- Axios\n- React-native-netinfo\n- React-native-restart\n- React-Query\n- React-Query-nswag",
+      "UI_Header": "UI",
+      "UI_Text": "- React navigation\n- React-native-modals\n- React-native-bootsplash\n- SafeAreaContext\n- KeyboardAware",
+      "Services_Header": "Dienste",
+      "Services_Text": "- Sentry\n- Firebase\n- CodePush\n- Matomo",
+      "Utils_Header": "Dienstprogramm",
+      "Utils_Text": "- i18next\n- Date-fns\n- React-native-config (ENV)\n- React-native-startup-time\n- React-native-make (Helfer für App-Symbole)\n - Warum-hast-du-gerendert?"
+    }
+  }
+}

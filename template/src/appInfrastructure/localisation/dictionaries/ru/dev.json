@@ -1,0 +1,58 @@
+{
+  "DevMode": {
+    "Hint_Header": "Подсказка",
+    "Hint_Text": "Вы можете активировать \"DevMode\" нажав 10 раз на логотип.\n\n<0>Password: </0><1>{{password}}</1>",
+    "Header": "Подтверждения вход в режим разработчика",
+    "Description": "Вы собираетесь открыть менб разработчика. Если знаете пароль - введите его. Надеймся вы знаете, что делаете.",
+    "PasswordInput": "Код доступа",
+    "Login": "Войти (Режим разработчика)",
+    "PasswordPlaceholder": "Пароль",
+    "Logout": "Выйти (dev mode)",
+    "User": {
+      "Header": "Информация о пользователе",
+      "Logout": "Выход",
+      "UserId": "<0>UserId:</0> {{value}}"
+    },
+    "App": {
+      "Header": "Информация о приложение",
+      "Language": "<0>Язык интерфейса:</0> Русский",
+      "Env": "<0>Environment:</0> {{value}}",
+      "Server": "<0>Адрес сервера:</0> {{value}}",
+      "AppVersion": "<0>Версия сборки:</0> {{value}}",
+      "CodePush": "<0>Версия CodePush:</0> {{value}}",
+      "DevMode": "<0>Режим разработчика:</0> {{value}}",
+      "Hermes": "<0>Hermes:</0>  {{value}}",
+      "HermesVersion": "<0>Hermes Version:</0>  {{value}}"
+    },
+    "Server": {
+      "Header": "Server info",
+      "Url": "<0>Server URL:</0> {{value}}",
+      "MinAppVersion": "<0>Minimal supported app version:</0> {{value}}",
+      "CurrentAppVersion": "<0>Latest app version:</0> {{value}}",
+      "ApiVersion": "<0>Server version:</0> {{value}}",
+      "MaintenanceFinishDate": "<0>Planned finish date(maintenance):</0> {{value}}",
+      "MaintenanceState": "<0>Maintenance active:</0> {{value}}"
+    },
+    "Modals": {
+      "Header": "Modals test",
+      "OpenInternal": "Open app modal",
+      "OpenBase": "Open classic modal",
+      "OneByOne": "Open two modals",
+      "OpenSwipe": "Open swipe modal"
+    },
+    "Errors": {
+      "Header": "Тест ошибок",
+      "RequestWithToast": "Неверный запрос (уведомление)",
+      "Request": "Неверный запрос",
+      "JsCrash": "Ошибка JS",
+      "NativeCrash": "Нативная ошибка"
+    },
+    "Network": {
+      "Header": "Network state info",
+      "Connected": "<0>Is connected:</0> {{value}}",
+      "Online": "<0>Is online:</0> {{value}}",
+      "Reachable": "<0>Is server reachable:</0> {{value}}",
+      "Fetching": "<0>Is data fetching:</0> {{value}}"
+    }
+  }
+}

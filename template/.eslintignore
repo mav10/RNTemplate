@@ -1,0 +1,12 @@
+.idea
+.vscode
+android
+assets
+ios
+node_modules
+types
+
+*client.ts
+*.js
+nock.ts
+**/*/services/api/*

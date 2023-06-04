@@ -1,0 +1,29 @@
+{
+  "Common_App": "RN Template App",
+  "Common_yes": "ja",
+  "Common_no": "nein",
+  "Common_cancel": "cancel",
+  "Common_loading": "Wird geladen...",
+  "Common_logout": "Log out",
+  "Language_en": "English",
+  "Language_de": "Deutsch",
+  "Language_ru": "Rus",
+  "Login": {
+    "Header": "Log-In",
+    "Text": "Klicken Sie auf die Schaltfläche um die Autorisierung zu simulieren",
+    "Button": "Log in"
+  },
+  "ErrorBoundary_Text": "Ein Fehler ist aufgetreten. We apologise for any inconvenience this has caused!\nPress the button below to restart the app.\nHopefully we have already known that it happened and trying to fix it it.",
+  "ErrorBoundary_Button": "Neu starten",
+  "ErrorBoundary_SendReport": "Send to bug tracker",
+  "ErrorBoundary_Header": "Oops,\nEtwas ist schief gelaufen...",
+  "NetworkErrorBoundary_Text": "Wir konnten keine Verbindung zu unserem Server herstellen. Möglicherweise ist Ihre Internetverbindung unterbrochen?",
+  "NetworkErrorBoundary_Button": "Aktualisierung",
+  "NetworkErrorBoundary_Header": "Netzwerkprobleme",
+  "Home_Description": "Es ist eine Vorlage mit Basisfunktionalität. Es enthält eine Bibliothek wie: \n- Redux, redux-persist\n- React navigation + sub deps\n- React-native-netinfo\n- React-native-restart\n- Sentry\n- Axios + react-query + react-query-nswag\n- React-native-modals\n- React-native-startup-time\n- Firebase (push notifications + performance)\n- i18next\n- React-native-bootsplash\n- React-native-make  (helper for app icons)\n- CodePush\n- Why-did-you-render\nreact-native-config (ENV variables)",
+  "Home_Hooks_Text": "Es enthält zusätzliche benutzerdefinierte Hooks. Um sie zu sehen, klicken Sie auf die Schaltfläche unten",
+  "Home_Hooks_Button": "Schau mal",
+  "Home_Hooks_Description": "We have got such hooks as:\n\nuseNotifications - initialize and handle pushes\nuseCustomBackBehaviour - to override system back button\nuseModal - add modal management (We've just open IT with this hook)\nuseNetworkError - handle network connection\nuseStartupTime - measure app launch time since native to js loading moment",
+  "Language": "Schnittstellensprache Deutsch",
+  "App_Version": "Anwendungsversion: {{version}}"
+}

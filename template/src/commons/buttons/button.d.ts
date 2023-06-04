@@ -1,9 +1,4 @@
-import {
-  StyleProp,
-  TextStyle,
-  TouchableOpacityProps,
-  ViewStyle,
-} from 'react-native';
+import { StyleProp, TextStyle, TouchableOpacityProps, ViewStyle } from 'react-native';
 
 export type colorSet = { active?: string; pressed?: string; disabled?: string };
 

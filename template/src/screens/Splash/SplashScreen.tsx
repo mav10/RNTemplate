@@ -1,16 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  Animated,
-  Dimensions,
-  Image,
-  Platform,
-  StatusBar,
-  StyleSheet,
-  Text,
-} from 'react-native';
+import { Animated, Dimensions, Image, Platform, StatusBar, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import RNBootSplash from 'react-native-bootsplash';
 import { localStyles } from './Splash.styles';
+import { useAppSelector } from '../../appInfrastructure/redux-store/store-types';
+import { useDispatch } from 'react-redux';
+import { AppActions } from '../../features/app/app-slice';
 
 const splashLogo = require('./../../../assets/images/bootsplash_logo.png');
 const bottomLogo = require('./../../../assets/images/init/bottom_logo_64.png');
@@ -18,12 +13,13 @@ const bottomLogo = require('./../../../assets/images/init/bottom_logo_64.png');
 const splashSizes = Image.resolveAssetSource(splashLogo);
 
 export const SplashScreen = () => {
+  const dispatch = useDispatch();
   const [bootSplashIsVisible, setBootSplashIsVisible] = useState(true);
   const [bootSplashLogoIsLoaded, setBootSplashLogoIsLoaded] = useState(false);
   const opacity = useRef(new Animated.Value(1));
   const opacityOfOtherElements = useRef(new Animated.Value(0));
   const translateY = useRef(new Animated.Value(0));
-  const isInit = true; //take it from your loading api or store
+  const { isInit } = useAppSelector(state => state.app);
 
   useEffect(() => {
     const init = async () => {
@@ -42,8 +38,7 @@ export const SplashScreen = () => {
         }),
         Animated.spring(translateY.current, {
           useNativeDriver: true,
-          toValue:
-            -Dimensions.get('window').height / 2 + splashSizes.height * 1.5,
+          toValue: -Dimensions.get('window').height / 2 + splashSizes.height * 1.5,
         }),
       ]).start(() => {
         if (Platform.OS === 'android') {
@@ -60,44 +55,30 @@ export const SplashScreen = () => {
         delay: 650,
       }).start(() => {
         setBootSplashIsVisible(false);
+        dispatch(AppActions.hideSplash());
       });
     };
 
     bootSplashLogoIsLoaded && init();
-  }, [bootSplashLogoIsLoaded]);
+  }, [bootSplashLogoIsLoaded, dispatch]);
 
   if (!bootSplashIsVisible && isInit) {
     return <></>;
   }
 
   return (
-    <SafeAreaView style={[localStyles.container]}>
-      <Animated.View
-        style={[
-          StyleSheet.absoluteFill,
-          localStyles.bootsplash,
-          { opacity: opacity.current },
-        ]}
-      >
+    <SafeAreaView style={localStyles.container}>
+      <Animated.View style={[StyleSheet.absoluteFill, localStyles.bootsplash, { opacity: opacity.current }]}>
         <Animated.Image
           source={splashLogo}
           fadeDuration={0}
           onLoadEnd={() => setBootSplashLogoIsLoaded(true)}
-          style={[{ transform: [{ translateY: translateY.current }] }]}
+          style={{ transform: [{ translateY: translateY.current }] }}
         />
       </Animated.View>
 
-      <Animated.View
-        style={[
-          localStyles.footer,
-          { opacity: opacityOfOtherElements.current },
-        ]}
-      >
-        <Image
-          source={bottomLogo}
-          resizeMode={'contain'}
-          style={localStyles.bottomLogo}
-        />
+      <Animated.View style={[localStyles.footer, { opacity: opacityOfOtherElements.current }]}>
+        <Image source={bottomLogo} resizeMode={'contain'} style={localStyles.bottomLogo} />
         <Text style={localStyles.footerText}>{'by Maxim Vasin\n(mav10)'}</Text>
       </Animated.View>
     </SafeAreaView>

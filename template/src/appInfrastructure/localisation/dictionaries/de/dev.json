@@ -1,0 +1,58 @@
+{
+  "DevMode": {
+    "Hint_Header": "Hinweis",
+    "Hint_Text": "Sie können einen \"DevMode\" aktivieren, indem Sie zehnmal auf das Logo drücken.\n\n<0>Passwort: </0><1>{{password}}</1>",
+    "Header": "Bestätigung des Entwicklungsmodus",
+    "Beschreibung": "Sie werden das Entwicklermenü öffnen. Wenn Sie das Passwort kennen, geben Sie es ein. Wir hoffen, dass Sie wissen, was Sie tun",
+    "PasswordInput": "Entwickler-Zugriffspasswort",
+    "Login": "Anmelden (Dev-Modus)",
+    "PasswordPlaceholder": "Passwort",
+    "Logout": "Entwicklermodus abmelden",
+    "User": {
+      "Header": "Benutzerinformationen",
+      "Logout": "Abmelden",
+      "UserId": "<0>UserId:</0> {{value}}"
+    },
+    "App": {
+      "Header": "App-Info",
+      "Language": "<0>Die Sprache der Benutzeroberfläche:</0> Deutsch",
+      "Env": "<0>Umgebung:</0> {{value}}",
+      "Server": "<0>Server-URL:</0> {{value}}",
+      "AppVersion": "<0>Build-Version:</0> {{value}}",
+      "CodePush": "<0>CodePush-Version:</0> {{value}}",
+      "DevMode": "<0>Dev Mode:</0> {{value}}",
+      "Hermes": "<0>Hermes:</0>  {{value}}",
+      "HermesVersion": "<0>Hermes Version:</0>  {{value}}"
+    },
+    "Server": {
+      "Header": "Server info",
+      "Url": "<0>Server URL:</0> {{value}}",
+      "MinAppVersion": "<0>Minimal supported app version:</0> {{value}}",
+      "CurrentAppVersion": "<0>Latest app version:</0> {{value}}",
+      "ApiVersion": "<0>Server version:</0> {{value}}",
+      "MaintenanceFinishDate": "<0>Planned finish date(maintenance):</0> {{value}}",
+      "MaintenanceState": "<0>Maintenance active:</0> {{value}}"
+    },
+    "Modals": {
+      "Header": "Modals test",
+      "OpenInternal": "Open app modal",
+      "OpenBase": "Open classic modal",
+      "OneByOne": "Open two modals",
+      "OpenSwipe": "Open swipe modal"
+    },
+    "Errors": {
+      "Header": "Fehlertests",
+      "RequestWithToast": "Ungültige Anfrage (Toast)",
+      "Request": "Ungültige Anfrage",
+      "JsCrash": "JS-Absturz",
+      "NativeCrash": "Native Absturz"
+    },
+    "Network": {
+      "Header": "Network state info",
+      "Connected": "<0>Is connected:</0> {{value}}",
+      "Online": "<0>Is online:</0> {{value}}",
+      "Reachable": "<0>Is server reachable:</0> {{value}}",
+      "Fetching": "<0>Is data fetching:</0> {{value}}"
+    }
+  }
+}

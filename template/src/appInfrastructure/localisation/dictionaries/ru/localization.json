@@ -1,0 +1,118 @@
+{
+  "Common_App": "RN Template App",
+  "Common_yes": "да",
+  "Common_no": "нет",
+  "Common_cancel": "отмена",
+  "Common_ok": "ok",
+  "Common_loading": "Загрузка...",
+  "Common_logout": "Выход",
+  "Common_back": "Назад",
+  "Common_App_Version": "Версия приложения: {{version}}",
+  "Languages": {
+    "Header": "Язык",
+    "Language": "Язык интерфейса Русский",
+    "Items": {
+      "en": "Английский",
+      "de": "Немецкий",
+      "ru": "Русский"
+    }
+  },
+  "ApplicationStateScreens": {
+    "ErrorBoundary": {
+      "Text": "В приложение произошла ошибка. Мы просим прощения за неудобство!\nНажмите кнопку ниже, чтобы перезагрузить приложение.\nК счастью мы уже знаем что это произошло и пытаемся устранить проблему.",
+      "Button": "Перезапустить",
+      "SendReport": "Отправить отчет",
+      "Header": "Ой-ой-ой,\nЧто-то пошло не так..."
+    },
+    "NoConnection": {
+      "Header": "Проблемы интернет соединения",
+      "Text": "Не удалось соединиться с сервером. Может у вас пробелмы с доступом к интернету?",
+      "Button": "Обнвоить"
+    },
+    "ServerError": {
+      "Header": "Server is not responding",
+      "Text": "The server is temporarily unavailable\nPlease try to restart the app later",
+      "Button": "Try again"
+    },
+    "Update": {
+      "Modal": {
+        "Header": "A new update is available",
+        "Text": "A new update for the app is available! Do you want to update the app?",
+        "AgreeButton": "Update",
+        "CancelButton": "Remind me later"
+      },
+      "Mandatory": {
+        "Title": "Update the app",
+        "Text": "To continue working with the app, you need to install a new version",
+        "Button": "Update"
+      },
+      "Stores": {
+        "android_store": "https://play.google.com/store/apps/details?id=com.lmt.studyapp",
+        "apple_store": "itms-apps://apps.apple.com/de/app/lm-study/id1556811945?l=en"
+      }
+    },
+    "Maintenance": {
+      "Title": "We are sorry, the system is currently under maintenance",
+      "Text_WithoutDate": "The app is temporarily unavailable\nPlease try to launch it later",
+      "Text_WithDate": "The app is temporarily unavailable\nIt will become available in",
+      "Units": {
+        "day": "d",
+        "hour": "h",
+        "minute": "min"
+      }
+    }
+  },
+  "Login": {
+    "Header": "Авторизация",
+    "Text": "Нажмите на кнопку, чтобы имитировать авторизацию",
+    "Username": {
+      "Label": "Логин",
+      "Placeholder": "Введите логин"
+    },
+    "Password": {
+      "Label": "Пароль",
+      "Placeholder": "Введите пароль"
+    },
+    "Hint": "Введите комбинацию username=\"user\" password=\"user123\"",
+    "Button": "Войти"
+  },
+  "Home": {
+    "Greeting": "Привет, Бро!",
+    "Description": "Это главный экран",
+    "Buttons": {
+      "Template": "Шаблон",
+      "Auth": "Авторизация",
+      "Dev": "Dev mode"
+    },
+    "Modals": {
+      "Template": {
+        "Header": "Опсиание шаблона",
+        "Text": "Это шаблон для React-Naitve.\nВсе уже настроено. Не нужно тратить свое время для настройки redux, env variables, tests, bootsplash т.д.\n\nПросто удалите ненужные экраны ик уски кода и начните кодить свой потрясающий проект!",
+        "Ok_button": "$t(Common_ok)"
+      },
+      "Auth": {
+        "Header": "Авторизация",
+        "Text": "В приложение НЕТ серверной атворизации - только симмуляция - хранится фейковы токен авторизации в async-storage.\n\nВы можете перейти на экран Профиля и авторизоваться, если еще не успели этос делать - введите захардкоженные данные для входа.\nP.S. Это просто демонстарция тогок ак моно организовать процесс атворизации.",
+        "Ok_button": "Navigate to profile"
+      },
+      "Dev": {
+        "Header": "Режим разработчика",
+        "Text": "В этом приложение есть скрытые экраны - доступ к ним осуществлется по нажатию 7-10 раз на логотип на экране \"Информация\". I- символ в правом верхнем углу.\n\n Бывает удобно прсомтреть некоторые параметры приложения - не делая эти данными легко доступными каждому пользователю.",
+        "Ok_button": "Navigate to dev menu"
+      }
+    },
+    "Libs": {
+      "Header": "Библиотеки",
+      "ReactAndRedux_Header": "React-Redux",
+      "ReactAndRedux_Text": "- React-Native\n- Redux\n- Redux-persist\n- react-redux",
+      "Network_Header": "Сеть",
+      "Network_Text": "- Axios\n- React-native-netinfo\n- React-native-restart\n- react-query\n- react-query-nswag",
+      "UI_Header": "UI",
+      "UI_Text": "- React navigation\n- React-native-modals\n- React-native-bootsplash\n- SafeAreaContext\n- KeyboardAware",
+      "Services_Header": "Сервисы",
+      "Services_Text": "- Sentry\n- Firebase\n- CodePush\n- Matomo",
+      "Utils_Header": "Утилиты",
+      "Utils_Text": "- i18next\n- Date-fns\n- React-native-config (ENV)\n- React-native-startup-time\n- React-native-make  (helper for app icons)\n- Why-did-you-render"
+    }
+  }
+}

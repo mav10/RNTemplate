@@ -4,10 +4,16 @@ import { AppCommonStyles } from '../styles/styles';
 
 export const localButtonStyles = StyleSheet.create({
   button: {
-    width: '100%',
-    paddingVertical: 15,
-    paddingHorizontal: 25,
     borderRadius: 5,
+    paddingHorizontal: 25,
+    paddingVertical: 15,
+  },
+
+  link: {
+    borderWidth: 0,
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    width: 'auto',
   },
 
   primary: {
@@ -16,22 +22,14 @@ export const localButtonStyles = StyleSheet.create({
 
   secondary: {
     backgroundColor: CommonColors.secondaryButton,
-    borderWidth: 1,
     borderColor: CommonColors.primaryButton,
-  },
-
-  link: {
-    width: 'auto',
-    paddingVertical: 0,
-    paddingHorizontal: 0,
-    borderWidth: 0,
+    borderWidth: 1,
   },
 });
 
 export const localTextStyles = StyleSheet.create({
-  text: {
-    ...AppCommonStyles.buttonText,
-    textAlign: 'center',
+  link: {
+    color: CommonColors.secondaryButtonText,
   },
 
   primary: {
@@ -42,22 +40,23 @@ export const localTextStyles = StyleSheet.create({
     color: CommonColors.secondaryButtonText,
   },
 
-  link: {
-    color: CommonColors.secondaryButtonText,
+  text: {
+    ...AppCommonStyles.buttonText,
+    textAlign: 'center',
   },
 });
 
 export const disabledButtonStyles = StyleSheet.create({
   empty: {},
+  link: {},
+
   primary: {
     backgroundColor: CommonColors.disabledButton,
   },
 
   secondary: {
     backgroundColor: CommonColors.secondaryButton,
-    borderWidth: 1,
     borderColor: CommonColors.disabledButton,
+    borderWidth: 1,
   },
-
-  link: {},
 });

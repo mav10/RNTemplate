@@ -3,51 +3,51 @@ import { CommonColors } from '../../commons/styles/colors';
 import { Fonts } from '../../commons/styles/fonts';
 
 export const localStyles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    bottom: 0,
-    top: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: CommonColors.background,
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: '700',
-    margin: 20,
-    lineHeight: 30,
-    color: '#333',
-    textAlign: 'center',
-  },
   bootsplash: {
+    alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
-  splashTextContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  splashText: {
-    textAlign: 'center',
-    color: CommonColors.text,
-    lineHeight: 36,
-    fontSize: 36,
-  },
-  footer: {
-    flex: 1,
-    alignSelf: 'center',
-    justifyContent: 'flex-end',
-    bottom: 10,
   },
   bottomLogo: { alignSelf: 'center', tintColor: CommonColors.text },
+  container: {
+    backgroundColor: CommonColors.background,
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+  },
+  footer: {
+    alignSelf: 'center',
+    bottom: 10,
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
   footerText: {
     color: CommonColors.plainText,
-    textAlign: 'center',
-    marginTop: 8,
     fontFamily: Fonts.REGULAR,
-    lineHeight: 19,
     fontSize: 17,
+    lineHeight: 19,
+    marginTop: 8,
+    textAlign: 'center',
+  },
+  splashText: {
+    color: CommonColors.text,
+    fontSize: 36,
+    lineHeight: 36,
+    textAlign: 'center',
+  },
+  splashTextContainer: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  text: {
+    color: CommonColors.text,
+    fontSize: 24,
+    fontWeight: '700',
+    lineHeight: 30,
+    margin: 20,
+    textAlign: 'center',
   },
 });
