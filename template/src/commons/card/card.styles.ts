@@ -5,7 +5,7 @@ const borderColor = '#EDEFEF';
 
 export const localStyles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0,
     backgroundColor: CommonColors.background,
     borderRadius: 10,
 

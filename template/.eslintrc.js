@@ -1,7 +1,13 @@
 module.exports = {
   root: true,
-  extends: ['@react-native-community', 'plugin:jest/recommended'],
-  plugins: ['jest'],
+  extends: [
+    '@react-native-community',
+    'plugin:react/recommended',
+    'plugin:react-native/all',
+    'plugin:react-hooks/recommended',
+    'plugin:jest/recommended',
+  ],
+  plugins: ['react', 'react-native', 'react-hooks', 'prettier', 'jest'],
   rules: {
     'prettier/prettier': [
       'error',
@@ -24,6 +30,16 @@ module.exports = {
 
     // Common
     'radix': 'off',
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
   env: {
     'es6': true,

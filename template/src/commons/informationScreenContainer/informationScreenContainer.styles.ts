@@ -5,7 +5,7 @@ export const localStyles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
     flexGrow: 1,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   topContainer: {
     flex: 1,

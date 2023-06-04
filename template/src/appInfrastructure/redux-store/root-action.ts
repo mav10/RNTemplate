@@ -1,5 +1,4 @@
-import { createAction } from '@reduxjs/toolkit';
 import { AppActions } from '../../features/app/app-slice';
+import { AuthActions } from '../../features/auth/auth-slice';
 
-export const logoutAction = createAction('logout');
-export type RootAction = typeof AppActions | typeof logoutAction;
+export type RootAction = typeof AppActions | typeof AuthActions;

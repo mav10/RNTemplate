@@ -16,7 +16,6 @@ export const localStyles = StyleSheet.create({
     paddingBottom: 24,
     paddingHorizontal: 0,
   },
-
   textItem: {
     ...AppCommonStyles.caption,
     marginBottom: 4,
@@ -45,7 +44,7 @@ export const localStyles = StyleSheet.create({
     letterSpacing: 5,
   },
 
-  sceneContainer: {
+  loginSceneContainer: {
     flex: 1,
     paddingHorizontal: 16,
     justifyContent: 'center',

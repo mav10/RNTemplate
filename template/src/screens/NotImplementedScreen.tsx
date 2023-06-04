@@ -3,7 +3,7 @@ import { InformationScreenContainer } from '../commons/informationScreenContaine
 import { View } from 'react-native';
 import { useSafeAreContainerStyles } from '../commons/styles/styles';
 
-const notImplemntedAnimation = require('../../assets/animations/coding.json');
+const notImplementedAnimation = require('../../assets/animations/coding.json');
 
 export const NotImplementedScreen = () => {
   const containerStyles = useSafeAreContainerStyles();
@@ -11,8 +11,8 @@ export const NotImplementedScreen = () => {
     <View style={containerStyles}>
       <InformationScreenContainer
         headerText={'Not implemented yet'}
-        text={'Fucntionality not fully implemented yet'}
-        lottieSource={notImplemntedAnimation}
+        text={'Functionality not fully implemented yet'}
+        lottieSource={notImplementedAnimation}
       />
     </View>
   );

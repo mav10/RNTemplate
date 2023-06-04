@@ -65,6 +65,15 @@
   "Login": {
     "Header": "Авторизация",
     "Text": "Нажмите на кнопку, чтобы имитировать авторизацию",
+    "Username": {
+      "Label": "Логин",
+      "Placeholder": "Введите логин"
+    },
+    "Password": {
+      "Label": "Пароль",
+      "Placeholder": "Введите пароль"
+    },
+    "Hint": "Введите комбинацию username=\"user\" password=\"user123\"",
     "Button": "Войти"
   },
   "Home": {
@@ -79,7 +88,7 @@
       "Template": {
         "Header": "Опсиание шаблона",
         "Text": "Это шаблон для React-Naitve.\nВсе уже настроено. Не нужно тратить свое время для настройки redux, env variables, tests, bootsplash т.д.\n\nПросто удалите ненужные экраны ик уски кода и начните кодить свой потрясающий проект!",
-        "Ok_button": "$(Common_ok)"
+        "Ok_button": "$t(Common_ok)"
       },
       "Auth": {
         "Header": "Авторизация",

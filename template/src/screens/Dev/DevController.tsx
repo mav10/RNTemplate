@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { AppCommonStyles } from '../../commons/styles/styles';
-import {KeyboardAvoidingView, ScrollView, Text, View} from 'react-native';
+import { KeyboardAvoidingView, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { localStyles } from './dev.styles';
 import { LanguageSwitcher } from '../../components/languageSwitcher/languageSwitcher.component';
@@ -23,7 +23,7 @@ import { onlineManager, useIsFetching } from '@tanstack/react-query';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { AppRoutes } from '../../navigation/configuration/routes';
 import { LocalizedResourceDictionaryKeys } from '../../appInfrastructure/localisation/i18next';
-import {AppActions} from "../../features/app/app-slice";
+import { AppActions } from '../../features/app/app-slice';
 
 const PWD = Config.REACT_APP_DEVMODE_PASS || 'pwd123';
 const modalIcon = require('../../../assets/images/update/star_20.png');
@@ -117,8 +117,10 @@ export const DevController = () => {
   const devLoginForm = () => {
     return (
       <KeyboardAvoidingView
-        contentContainerStyle={localStyles.sceneContainer}
+        behavior={'position'}
+        contentContainerStyle={localStyles.loginSceneContainer}
         style={localStyles.scrollView}>
+        <View style={{flex: 2, justifyContent: 'center'}}>
         <Text style={[AppCommonStyles.heading1, localStyles.header]}>{t('DevMode.Header')}</Text>
         <Text style={[AppCommonStyles.caption]}>{t('DevMode.Description')}</Text>
 
@@ -132,7 +134,10 @@ export const DevController = () => {
           value={password}
           secureTextEntry={true}
         />
-        <ButtonComponent type={'primary'} label={t('DevMode.Login')} onPress={handlePassword} />
+        </View>
+        <View style={{ justifyContent: 'flex-end', flex: 1}}>
+          <ButtonComponent type={'primary'} label={t('DevMode.Login')} onPress={handlePassword} />
+        </View>
       </KeyboardAvoidingView>
     );
   };
@@ -222,10 +227,7 @@ export const DevController = () => {
             <ParamItem localisationKey={'DevMode.Server.Url'} value={Config.REACT_APP_API_URL} />
             <ParamItem localisationKey={'DevMode.Server.ApiVersion'} value={serverVersions} />
             <ParamItem localisationKey={'DevMode.Server.CurrentAppVersion'} value={remoteAppVersions} />
-            <ParamItem
-              localisationKey={'DevMode.Server.MinAppVersion'}
-              value={remoteAppVersions || 'unknown'}
-            />
+            <ParamItem localisationKey={'DevMode.Server.MinAppVersion'} value={remoteAppVersions || 'unknown'} />
             <ParamItem
               localisationKey={'DevMode.Server.MaintenanceState'}
               value={JSON.stringify(maintenanceInfo || false)}
@@ -245,10 +247,7 @@ export const DevController = () => {
             <Card>
               <ParamItem localisationKey={'DevMode.User.Id'} value={'query.userId'} />
               <ParamItem localisationKey={'DevMode.User.Tenant'} value={'query.tenantId'} />
-              <ParamItem
-                localisationKey={'DevMode.User.StudyStartAt'}
-                value={'date'}
-              />
+              <ParamItem localisationKey={'DevMode.User.StudyStartAt'} value={'date'} />
               <ParamItem localisationKey={'DevMode.User.PushTokenLocal'} value={localPushToken} />
             </Card>
           </BlockComponent>
@@ -343,7 +342,7 @@ export const DevController = () => {
   };
 
   return (
-    <SafeAreaView style={[AppCommonStyles.container15, isDevAuth ? {paddingHorizontal: 0} : {}]} edges={['bottom']}>
+    <SafeAreaView style={[AppCommonStyles.container15, isDevAuth ? { paddingHorizontal: 0 } : {}]} edges={['bottom']}>
       {isDevAuth ? content() : devLoginForm()}
     </SafeAreaView>
   );
