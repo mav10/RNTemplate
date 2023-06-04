@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { AuthActions } from '../../features/auth/auth-slice';
 import { ButtonComponent } from '../../commons/buttons/button.component';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {AppCommonStyles} from "../../commons/styles/styles";
+import { AppCommonStyles } from '../../commons/styles/styles';
 
 const logo = require('./../../../assets/images/bootsplash_logo.png');
 

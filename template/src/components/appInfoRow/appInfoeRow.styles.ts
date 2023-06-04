@@ -4,26 +4,26 @@ import { AppCommonStyles } from '../../commons/styles/styles';
 export const localStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    gap: 12,
     justifyContent: 'flex-start',
     width: '100%',
-    gap: 12,
-  },
-  textContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    flex: 1,
-    gap: 4,
   },
   headerText: {
     ...AppCommonStyles.heading4,
+  },
+  icon: {
+    height: 56,
+    resizeMode: 'contain',
+    width: 56,
   },
   text: {
     ...AppCommonStyles.text,
     textAlign: 'left',
   },
-  icon: {
-    resizeMode: 'contain',
-    width: 56,
-    height: 56,
+  textContainer: {
+    flexDirection: 'column',
+    flex: 1,
+    gap: 4,
+    justifyContent: 'center',
   },
 });

@@ -21,7 +21,9 @@ export const InfoController = () => {
   const { bottom: bottomInset } = useSafeAreaInsets();
 
   return (
-    <SafeAreaView style={[AppCommonStyles.container, { alignItems: 'stretch', paddingBottom: -bottomInset }]} edges={['bottom']}>
+    <SafeAreaView
+      style={[AppCommonStyles.container, { alignItems: 'stretch', paddingBottom: -bottomInset }]}
+      edges={['bottom']}>
       <ScrollView
         contentContainerStyle={[localStyles.layout, { paddingBottom: bottomInset + localStyles.layout.paddingBottom }]}
         testID={'Information_screen'}>
@@ -32,7 +34,7 @@ export const InfoController = () => {
 
           <View style={localStyles.section}>
             <AppInfoRowComponent
-              testIdPrefix={`Information_Name`}
+              testIdPrefix={'Information_Name'}
               headerText={t('Name_Header')}
               text={t('Name_Value')}
             />

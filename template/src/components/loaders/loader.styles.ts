@@ -9,14 +9,14 @@ export const localStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   indicator: {
-    justifyContent: 'center',
     alignSelf: 'center',
+    justifyContent: 'center',
   },
   text: {
+    color: CommonColors.animation,
     fontFamily: Fonts.REGULAR,
     fontSize: 14,
     lineHeight: 18,
     textAlign: 'center',
-    color: CommonColors.animation,
   },
 });

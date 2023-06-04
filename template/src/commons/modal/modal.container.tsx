@@ -51,7 +51,7 @@ export const AppModal: React.FC<PropsWithChildren<AppModalProps>> = props => {
       animationInTiming={500}
       animationOutTiming={700}>
       <View style={localStyles.container}>
-        <View style={[localStyles.header]}>
+        <View style={localStyles.header}>
           <View style={localStyles.headerLeftContainer}>
             {icon && <Image style={localStyles.icon} source={icon} />}
             {headerText && <Text style={localStyles.headerText}>{headerText}</Text>}
@@ -111,7 +111,7 @@ export const AppSwipeModal: React.FC<PropsWithChildren<AppModalProps>> = props =
       backdropTransitionInTiming={0}>
       <View style={[localStyles.container, localStyles.swipeContentContainer, { paddingBottom: bottom }, styles]}>
         <View style={localStyles.swipeModalButton} />
-        <View style={[localStyles.header]}>
+        <View style={localStyles.header}>
           <View style={localStyles.headerLeftContainer}>
             {icon && <Image style={localStyles.icon} source={icon} />}
             {headerText && <Text style={localStyles.swipeHeaderText}>{headerText}</Text>}

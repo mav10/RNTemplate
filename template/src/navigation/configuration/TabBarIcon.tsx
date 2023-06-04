@@ -32,16 +32,16 @@ export const TabBarIcon = (props: {
 };
 
 const localStyles = StyleSheet.create({
+  active: {
+    opacity: 0.7,
+  },
   base: {
-    resizeMode: 'contain',
-    opacity: 0.85,
-    width: 25,
     height: 25,
+    opacity: 0.85,
+    resizeMode: 'contain',
+    width: 25,
   },
   focused: {
     opacity: 1,
-  },
-  active: {
-    opacity: 0.7,
   },
 });

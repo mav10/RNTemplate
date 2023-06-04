@@ -1,15 +1,8 @@
 import { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
 import { logger } from '../logging/logging';
-import {
-  consumeDemoMessage,
-  consumePromoMessage,
-  consumeUnclassifiedMessage,
-  PushActionTypes,
-} from './push-consumers';
+import { consumeDemoMessage, consumePromoMessage, consumeUnclassifiedMessage, PushActionTypes } from './push-consumers';
 
-export async function onFcmMessageInForeground(
-  message: FirebaseMessagingTypes.RemoteMessage,
-) {
+export async function onFcmMessageInForeground(message: FirebaseMessagingTypes.RemoteMessage) {
   logger().info(`A new FCM received in foreground ${JSON.stringify(message)}`);
 
   if (message.data && message.data.type) {
@@ -29,15 +22,11 @@ export async function onFcmMessageInForeground(
   }
 }
 
-export function onFcmMessageInBackground(
-  message: FirebaseMessagingTypes.RemoteMessage,
-) {
+export function onFcmMessageInBackground(message: FirebaseMessagingTypes.RemoteMessage) {
   logger().info(`A new FCM received in background ${JSON.stringify(message)}`);
 }
 
-export function onNotificationOpened(
-  message: FirebaseMessagingTypes.RemoteMessage,
-) {
+export function onNotificationOpened(message: FirebaseMessagingTypes.RemoteMessage) {
   logger().info('Notification caused app to open from background state');
   console.log(message);
 }

@@ -120,22 +120,22 @@ export const DevController = () => {
         behavior={'position'}
         contentContainerStyle={localStyles.loginSceneContainer}
         style={localStyles.scrollView}>
-        <View style={{flex: 2, justifyContent: 'center'}}>
-        <Text style={[AppCommonStyles.heading1, localStyles.header]}>{t('DevMode.Header')}</Text>
-        <Text style={[AppCommonStyles.caption]}>{t('DevMode.Description')}</Text>
+        <View style={{ flex: 2, justifyContent: 'center' }}>
+          <Text style={[AppCommonStyles.heading1, localStyles.header]}>{t('DevMode.Header')}</Text>
+          <Text style={AppCommonStyles.caption}>{t('DevMode.Description')}</Text>
 
-        <CustomTextInput
-          label={t('DevMode.PasswordInput')}
-          placeholder={t('DevMode.PasswordPlaceholder')}
-          containerStyles={localStyles.inputContainerStyles}
-          isInvalid={isSubmitted && password !== PWD}
-          textStyles={localStyles.inputTextStyles}
-          onChangeText={onChangeText}
-          value={password}
-          secureTextEntry={true}
-        />
+          <CustomTextInput
+            label={t('DevMode.PasswordInput')}
+            placeholder={t('DevMode.PasswordPlaceholder')}
+            containerStyles={localStyles.inputContainerStyles}
+            isInvalid={isSubmitted && password !== PWD}
+            textStyles={localStyles.inputTextStyles}
+            onChangeText={onChangeText}
+            value={password}
+            secureTextEntry={true}
+          />
         </View>
-        <View style={{ justifyContent: 'flex-end', flex: 1}}>
+        <View style={{ justifyContent: 'flex-end', flex: 1 }}>
           <ButtonComponent type={'primary'} label={t('DevMode.Login')} onPress={handlePassword} />
         </View>
       </KeyboardAvoidingView>

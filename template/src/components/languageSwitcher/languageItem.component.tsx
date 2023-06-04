@@ -1,16 +1,15 @@
 import React, { useCallback } from 'react';
-import {Image, Pressable, StyleProp, Text} from 'react-native';
-import { itemButtonStyles, itemIconStyles, itemLocalStyles} from './languageSwitcher.styles';
+import { Image, Pressable, StyleProp, Text } from 'react-native';
+import { itemButtonStyles, itemIconStyles, itemLocalStyles } from './languageSwitcher.styles';
 import { LanguageItemProps } from './languageSwitcher';
 
 const checkIcon = require('assets/images/check_20.png');
 
-
 function getPressableStyles<T, K>(
-    pressed: boolean,
-    selected: boolean,
-    baseStyles: StyleProp<K>,
-    stateStyles: T
+  pressed: boolean,
+  selected: boolean,
+  baseStyles: StyleProp<K>,
+  stateStyles: T
 ): StyleProp<K> {
   const containerStyle: StyleProp<K>[] = [baseStyles, {} as Record<any, any>];
 
@@ -19,7 +18,6 @@ function getPressableStyles<T, K>(
   containerStyle.push(stateStyles[buttonStateSelector]);
   return containerStyle;
 }
-
 
 export const LanguageItem = (props: LanguageItemProps) => {
   const getButtonStyle = useCallback(

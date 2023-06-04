@@ -2,45 +2,45 @@ import { StyleSheet } from 'react-native';
 import { CommonColors } from '../../commons/styles/colors';
 
 export const localStyles = StyleSheet.create({
-  safeArea: { flexGrow: 1 },
-  container: { flexGrow: 1, justifyContent: 'space-between', alignItems: 'stretch' },
-  content: { flex: 1, rowGap: 20 },
-  greeting: {
-    justifyContent: 'flex-start',
-  },
-
-  librariesCarousel: { gap: 10, paddingBottom: 10 },
-
-  buttonsCard: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 1,
-  },
-  cardLayout: { flex: 0 },
-  libCard: { flex: 0, gap: 5, flexWrap: 'nowrap' },
-  libRow: { flexDirection: 'row', gap: 10 },
-  libItem: { gap: 5 },
-
   appBlock: {
-    justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
     gap: 10,
+    justifyContent: 'space-between',
   },
-  icon: {
-    resizeMode: 'contain',
-    borderRadius: 20,
+  buttonsCard: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 1,
+    justifyContent: 'space-between',
   },
-  textContainer: {
-    borderWidth: 1,
-    borderColor: CommonColors.primary,
-    borderRadius: 15,
+  cardLayout: { flex: 0 },
+  container: { alignItems: 'stretch', flexGrow: 1, justifyContent: 'space-between' },
 
-    paddingVertical: 15,
-    flex: 2,
-  },
+  content: { flex: 1, rowGap: 20 },
 
   footer: { alignItems: 'center', gap: 5, paddingTop: 30 },
+  greeting: {
+    justifyContent: 'flex-start',
+  },
+  icon: {
+    borderRadius: 20,
+    resizeMode: 'contain',
+  },
+  libCard: { flex: 0, flexWrap: 'nowrap', gap: 5 },
+  libItem: { gap: 5 },
+
+  libRow: { flexDirection: 'row', gap: 10 },
+  librariesCarousel: { gap: 10, paddingBottom: 10 },
+  safeArea: { flexGrow: 1 },
+
+  textContainer: {
+    borderColor: CommonColors.primary,
+    borderRadius: 15,
+    borderWidth: 1,
+
+    flex: 2,
+    paddingVertical: 15,
+  },
 });

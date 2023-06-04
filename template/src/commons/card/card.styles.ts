@@ -5,27 +5,22 @@ const borderColor = '#EDEFEF';
 
 export const localStyles = StyleSheet.create({
   container: {
-    flex: 0,
     backgroundColor: CommonColors.background,
     borderRadius: 10,
+    elevation: 5,
 
+    flex: 0,
     shadowColor: Platform.select({
       android: 'rgba(0, 37, 71, 1)',
       ios: 'rgba(0, 37, 71, 0.15)',
     }),
-    shadowOpacity: 1,
-    shadowRadius: 7,
     shadowOffset: {
       width: 0,
       height: 7,
     },
+    shadowOpacity: 1,
 
-    elevation: 5,
-  },
-
-  withHeaderOrFooter: {
-    paddingHorizontal: 0,
-    paddingTop: 0,
+    shadowRadius: 7,
   },
 
   contentStyle: {
@@ -41,29 +36,34 @@ export const localStyles = StyleSheet.create({
     paddingTop: 13,
   },
 
-  header: {
+  dailyCheckIcon: {
+    resizeMode: 'contain',
+  },
+
+  dailyCheckWrapper: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+
+  footer: {
+    borderColor: borderColor,
+    borderTopWidth: 1,
+    paddingBottom: 24,
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingTop: 16,
+  },
+
+  header: {
     borderBottomWidth: 1,
     borderColor: borderColor,
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-
-  footer: {
-    borderTopWidth: 1,
-    borderColor: borderColor,
     paddingHorizontal: 16,
-    paddingBottom: 24,
-    paddingTop: 16,
+    paddingVertical: 12,
   },
 
-  dailyCheckWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
-  dailyCheckIcon: {
-    resizeMode: 'contain',
+  withHeaderOrFooter: {
+    paddingHorizontal: 0,
+    paddingTop: 0,
   },
 });

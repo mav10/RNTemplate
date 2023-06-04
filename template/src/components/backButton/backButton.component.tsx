@@ -16,9 +16,9 @@ export const BackButton = (props: HeaderBackButtonProps) => {
     navigation.goBack();
   }, []);
 
-    if (!props.canGoBack) {
-        return <></>;
-    }
+  if (!props.canGoBack) {
+    return <></>;
+  }
 
   return (
     <TouchableOpacity
@@ -26,8 +26,8 @@ export const BackButton = (props: HeaderBackButtonProps) => {
       onPress={onPrev}
       activeOpacity={1}
       hitSlop={uxTapZone}
-      style={[localStyles.container]}>
-      <Image source={arrow} style={[localStyles.image]} />
+      style={localStyles.container}>
+      <Image source={arrow} style={localStyles.image} />
       <Text style={[AppCommonStyles.buttonLinkText, localStyles.text]}>{t('Common_back')}</Text>
     </TouchableOpacity>
   );

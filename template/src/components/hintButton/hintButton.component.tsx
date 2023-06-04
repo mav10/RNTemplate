@@ -23,8 +23,8 @@ export const HintButton = () => {
         onPress={openModal}
         activeOpacity={0.7}
         hitSlop={uxTapZone}
-        style={[localStyles.container]}>
-        <Image source={question} style={[localStyles.image]}/>
+        style={localStyles.container}>
+        <Image source={question} style={localStyles.image} />
       </TouchableOpacity>
 
       <AppModal isVisible={visible} onClose={closeModal} headerText={t('DevMode.Hint_Header')}>

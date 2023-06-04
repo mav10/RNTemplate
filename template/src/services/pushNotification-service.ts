@@ -1,7 +1,7 @@
 import messaging from '@react-native-firebase/messaging';
-import {requestNotifications} from 'react-native-permissions';
-import {RESULTS} from 'react-native-permissions/src/results';
-import {logger} from '../appInfrastructure/logging/logging';
+import { requestNotifications } from 'react-native-permissions';
+import { RESULTS } from 'react-native-permissions/src/results';
+import { logger } from '../appInfrastructure/logging/logging';
 
 export class NotificationService {
   private isEnabled = false;

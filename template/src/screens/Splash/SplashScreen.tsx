@@ -67,13 +67,13 @@ export const SplashScreen = () => {
   }
 
   return (
-    <SafeAreaView style={[localStyles.container]}>
+    <SafeAreaView style={localStyles.container}>
       <Animated.View style={[StyleSheet.absoluteFill, localStyles.bootsplash, { opacity: opacity.current }]}>
         <Animated.Image
           source={splashLogo}
           fadeDuration={0}
           onLoadEnd={() => setBootSplashLogoIsLoaded(true)}
-          style={[{ transform: [{ translateY: translateY.current }] }]}
+          style={{ transform: [{ translateY: translateY.current }] }}
         />
       </Animated.View>
 

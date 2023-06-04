@@ -149,29 +149,29 @@ export const DashboardController = () => {
           <View style={localStyles.libRow}>
             <View style={localStyles.libItem}>
               <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.ReactAndRedux_Header')}</Text>
-              <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.ReactAndRedux_Text')}</Text>
+              <Text style={AppCommonStyles.caption}>{t('Home.Libs.ReactAndRedux_Text')}</Text>
             </View>
 
             <View style={localStyles.libItem}>
               <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.Services_Header')}</Text>
-              <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.Services_Text')}</Text>
+              <Text style={AppCommonStyles.caption}>{t('Home.Libs.Services_Text')}</Text>
             </View>
 
             <View style={localStyles.libItem}>
               <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.UI_Header')}</Text>
-              <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.UI_Text')}</Text>
+              <Text style={AppCommonStyles.caption}>{t('Home.Libs.UI_Text')}</Text>
             </View>
           </View>
 
           <View style={localStyles.libRow}>
             <View style={[localStyles.libItem, { width: '51%' }]}>
               <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.Utils_Header')}</Text>
-              <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.Utils_Text')}</Text>
+              <Text style={AppCommonStyles.caption}>{t('Home.Libs.Utils_Text')}</Text>
             </View>
 
             <View style={[localStyles.libItem, { width: '49%' }]}>
               <Text style={AppCommonStyles.captionBold}>{t('Home.Libs.Network_Header')}</Text>
-              <Text style={[AppCommonStyles.caption]}>{t('Home.Libs.Network_Text')}</Text>
+              <Text style={AppCommonStyles.caption}>{t('Home.Libs.Network_Text')}</Text>
             </View>
           </View>
         </Card>

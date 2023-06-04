@@ -1,4 +1,4 @@
-import {ImageSourcePropType, ImageStyle, StyleProp} from 'react-native';
+import { ImageSourcePropType, ImageStyle, StyleProp } from 'react-native';
 
 export type AppInfoRowProps = {
   headerText?: string;

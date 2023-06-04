@@ -2,22 +2,10 @@ import { StyleSheet } from 'react-native';
 import { CommonColors } from '../../commons/styles/colors';
 
 export const localStyles = StyleSheet.create({
-  layout: {
-    paddingHorizontal: 16,
-    paddingTop: 32,
-    paddingBottom: 24,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: 32,
-    flexGrow: 1,
-  },
   contentContainer: {
+    alignSelf: 'stretch',
     flexGrow: 1,
     gap: 32,
-    alignSelf: 'stretch',
-  },
-  section: {
-    gap: 20,
   },
   divider: {
     backgroundColor: CommonColors.lightGray,
@@ -26,5 +14,17 @@ export const localStyles = StyleSheet.create({
   },
   filledManufactoryIcon: {
     tintColor: CommonColors.text,
+  },
+  layout: {
+    alignItems: 'center',
+    flexGrow: 1,
+    gap: 32,
+    justifyContent: 'space-between',
+    paddingBottom: 24,
+    paddingHorizontal: 16,
+    paddingTop: 32,
+  },
+  section: {
+    gap: 20,
   },
 });

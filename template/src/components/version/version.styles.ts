@@ -4,11 +4,11 @@ import { CommonColors } from '../../commons/styles/colors';
 
 export const localStyles = StyleSheet.create({
   text: {
+    color: CommonColors.text,
     fontFamily: Fonts.REGULAR,
     fontSize: 14,
-    lineHeight: 22,
     letterSpacing: 0.14,
+    lineHeight: 22,
     textAlign: 'center',
-    color: CommonColors.text,
   },
 });

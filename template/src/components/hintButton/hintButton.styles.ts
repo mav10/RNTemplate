@@ -3,15 +3,15 @@ import { CommonColors } from '../../commons/styles/colors';
 
 export const localStyles = StyleSheet.create({
   container: {
-    marginLeft: 8,
-    marginTop: 13,
+    alignItems: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems: 'center',
+    marginLeft: 8,
+    marginTop: 13,
   },
   image: {
-    resizeMode: 'contain',
     alignSelf: 'flex-start',
+    resizeMode: 'contain',
   },
   text: {
     color: CommonColors.plainText,

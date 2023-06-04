@@ -7,36 +7,36 @@ const { height, width } = Dimensions.get('window');
 const splashLogoSizes = Image.resolveAssetSource(require('../../../assets/images/bootsplash_logo.png'));
 
 export const navigationStyles = StyleSheet.create({
-  headerTitleStyles: {
-    fontFamily: Fonts.BOLD,
-    fontSize: 22,
-    color: CommonColors.text,
-  },
-
   headerStyles: {
     backgroundColor: CommonColors.background,
   },
 
-  surveyHeaderTitle: {
-    width: width * 0.7,
-    paddingHorizontal: 8,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    flex: 0,
+  headerTitleStyles: {
+    color: CommonColors.text,
+    fontFamily: Fonts.BOLD,
+    fontSize: 22,
   },
 
   mainLoader: {
+    alignSelf: 'center',
+    aspectRatio: splashLogoSizes.width / splashLogoSizes.height,
+    height: splashLogoSizes.height,
     position: 'absolute',
     top: height / 2 - 80 / 2 + 3,
-    alignSelf: 'center',
     width: splashLogoSizes.width,
-    height: splashLogoSizes.height,
-    aspectRatio: splashLogoSizes.width / splashLogoSizes.height,
+  },
+
+  surveyHeaderTitle: {
+    flex: 0,
+    paddingHorizontal: 8,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    width: width * 0.7,
   },
 
   textStyles: {
+    alignSelf: 'center',
     position: 'absolute',
     top: height / 2 + 80 / 2 + 3,
-    alignSelf: 'center',
   },
 });

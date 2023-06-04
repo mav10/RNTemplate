@@ -2,7 +2,7 @@ import { AnyAction, combineReducers, Reducer } from '@reduxjs/toolkit';
 import { appSlice } from '../../features/app/app-slice';
 import { defaultAppState } from '../../features/app/app-types';
 import { RootState } from './store-types';
-import {AuthActions, authSlice} from "../../features/auth/auth-slice";
+import { AuthActions, authSlice } from '../../features/auth/auth-slice';
 
 let _logoutHandler = () => {
   /* no action by default */

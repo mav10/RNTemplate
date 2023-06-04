@@ -5,6 +5,43 @@ import { AppCommonStyles } from '../styles/styles';
 const DESIGNED_PADDING = 16;
 
 export const localStyles = StyleSheet.create({
+  container: {
+    alignContent: 'center',
+    alignSelf: 'stretch',
+    backgroundColor: CommonColors.background,
+    borderRadius: 10,
+
+    justifyContent: 'center',
+    marginHorizontal: DESIGNED_PADDING,
+  },
+  content: {
+    padding: DESIGNED_PADDING,
+  },
+
+  header: {
+    alignItems: 'flex-start',
+    columnGap: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: DESIGNED_PADDING,
+
+    paddingTop: DESIGNED_PADDING,
+  },
+
+  headerLeftContainer: {
+    columnGap: 8,
+    flexDirection: 'row',
+    flex: 1,
+  },
+
+  headerText: {
+    ...AppCommonStyles.heading4,
+    flex: 1,
+  },
+  icon: {
+    resizeMode: 'contain',
+  },
+
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -12,60 +49,17 @@ export const localStyles = StyleSheet.create({
     margin: 0,
     padding: 0,
   },
-  container: {
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignSelf: 'stretch',
-    backgroundColor: CommonColors.background,
-
-    marginHorizontal: DESIGNED_PADDING,
-    borderRadius: 10,
-  },
-
-  content: {
-    padding: DESIGNED_PADDING,
-  },
 
   swipeContent: {
     paddingHorizontal: 0,
   },
 
-  swipeModalContainer: {
-    justifyContent: 'flex-end',
-    margin: 0,
-    marginTop: 150,
-  },
   swipeContentContainer: {
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-
     alignSelf: 'stretch',
+    borderBottomLeftRadius: 0,
+
+    borderBottomRightRadius: 0,
     marginHorizontal: 0,
-  },
-
-  header: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    paddingHorizontal: DESIGNED_PADDING,
-    paddingTop: DESIGNED_PADDING,
-
-    columnGap: 8,
-  },
-
-  headerLeftContainer: {
-    flexDirection: 'row',
-    flex: 1,
-    columnGap: 8,
-  },
-
-  icon: {
-    resizeMode: 'contain',
-  },
-
-  headerText: {
-    ...AppCommonStyles.heading4,
-    flex: 1,
   },
 
   swipeHeaderText: {
@@ -73,11 +67,17 @@ export const localStyles = StyleSheet.create({
   },
 
   swipeModalButton: {
-    borderRadius: 6,
-    backgroundColor: CommonColors.lightGray,
-    height: 3,
-    width: '21%',
-    margin: 8,
     alignSelf: 'center',
+    backgroundColor: CommonColors.lightGray,
+    borderRadius: 6,
+    height: 3,
+    margin: 8,
+    width: '21%',
+  },
+
+  swipeModalContainer: {
+    justifyContent: 'flex-end',
+    margin: 0,
+    marginTop: 150,
   },
 });

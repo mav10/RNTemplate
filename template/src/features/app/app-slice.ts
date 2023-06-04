@@ -27,14 +27,14 @@ export const appSlice = createSlice({
       return {
         ...state,
         isDevMode: true,
-      }
+      };
     },
     disableDevMode: state => {
       return {
         ...state,
         isDevMode: false,
-      }
-    }
+      };
+    },
   },
 });
 

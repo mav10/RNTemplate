@@ -15,9 +15,7 @@ export const injectAppVersionToHeaders = (getState: () => RootState) => {
   return async (config: AxiosRequestConfig) => {
     const state = getState();
     const codePushVersion = state.app.codePushVersion;
-    const extraVersion = codePushVersion
-      ? `(${codePushVersion.substr(1)})`
-      : '';
+    const extraVersion = codePushVersion ? `(${codePushVersion.substr(1)})` : '';
 
     config.headers = config.headers ?? {};
     config.headers.ClientVersion = `${Config.REACT_APP_VERSION_NAME}${extraVersion}`;

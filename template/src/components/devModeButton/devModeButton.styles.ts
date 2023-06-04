@@ -7,8 +7,8 @@ export const localStyles = StyleSheet.create({
   },
 
   inputContainerStyles: {
-    marginTop: 30,
     marginBottom: 20,
+    marginTop: 30,
   },
 
   inputTextStyles: {
@@ -17,8 +17,8 @@ export const localStyles = StyleSheet.create({
   },
 
   sceneContainer: {
-    justifyContent: 'space-between',
     alignSelf: 'stretch',
     flex: 0,
+    justifyContent: 'space-between',
   },
 });

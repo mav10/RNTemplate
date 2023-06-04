@@ -9,18 +9,16 @@ export const CodePushProvider: FC<PropsWithChildren> = props => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    CodePush.getUpdateMetadata(CodePush.UpdateState.RUNNING).then(
-      (update: LocalPackage | null) => {
-        const codePushVersion = update?.label || null;
+    CodePush.getUpdateMetadata(CodePush.UpdateState.RUNNING).then((update: LocalPackage | null) => {
+      const codePushVersion = update?.label || null;
 
-        if (codePushVersion) {
-          dispatch(AppActions.setCodePushVersion(codePushVersion));
-          logger().info(
-            `Set up CodePush VERSION: ${codePushVersion}. Main BUILD VERSION: ${Config.REACT_APP_VERSION_NAME}`,
-          );
-        }
-      },
-    );
+      if (codePushVersion) {
+        dispatch(AppActions.setCodePushVersion(codePushVersion));
+        logger().info(
+          `Set up CodePush VERSION: ${codePushVersion}. Main BUILD VERSION: ${Config.REACT_APP_VERSION_NAME}`
+        );
+      }
+    });
   }, [dispatch]);
 
   return <>{props.children}</>;

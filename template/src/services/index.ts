@@ -13,7 +13,6 @@ export const notificationService = () => {
   return _pushService;
 };
 
-
 export const queryClientInstance = () => {
   if (_clientInstance === null) {
     _clientInstance = QueryClientInstance();

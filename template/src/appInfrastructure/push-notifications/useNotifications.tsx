@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react';
 import { logger } from '../logging/logging';
-import messaging, {
-  FirebaseMessagingTypes,
-} from '@react-native-firebase/messaging';
-import {
-  onFcmMessageInForeground,
-  onFcmTokenRefresh,
-  onNotificationOpened,
-} from './push-handlers';
+import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
+import { onFcmMessageInForeground, onFcmTokenRefresh, onNotificationOpened } from './push-handlers';
 import RemoteMessage = FirebaseMessagingTypes.RemoteMessage;
 
 export function useNotifications() {
@@ -27,7 +21,7 @@ export function useNotifications() {
     logger().info(
       `Push notifications registration has finished.
          Enabled: ${isAllowed}, 
-         Registered: ${messaging().isDeviceRegisteredForRemoteMessages}`,
+         Registered: ${messaging().isDeviceRegisteredForRemoteMessages}`
     );
   };
 
@@ -47,17 +41,11 @@ export function useNotifications() {
       .getInitialNotification()
       .then((message: RemoteMessage | null) => {
         if (message) {
-          logger().info(
-            'Notification caused app to open from quit state: ' +
-              JSON.stringify(message),
-          );
+          logger().info('Notification caused app to open from quit state: ' + JSON.stringify(message));
         }
       })
       .catch((reason: any) => {
-        logger().error(
-          'Failed to process notification from quit state. Reason: ' +
-            JSON.stringify(reason),
-        );
+        logger().error('Failed to process notification from quit state. Reason: ' + JSON.stringify(reason));
       });
   }, []);
 }
