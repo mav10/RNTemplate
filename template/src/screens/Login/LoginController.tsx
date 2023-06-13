@@ -8,6 +8,7 @@ import { AuthActions } from '../../features/auth/auth-slice';
 import { ButtonComponent } from '../../commons/buttons/button.component';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppCommonStyles } from '../../commons/styles/styles';
+import { HintButton } from '../../components/hintButton/hintButton.component';
 
 const logo = require('./../../../assets/images/bootsplash_logo.png');
 
@@ -51,6 +52,9 @@ export const LoginController = () => {
               onChangeText={setPassword}
               value={password}
             />
+            <View style={localStyles.hintContainer}>
+              <HintButton header={t('HintHeader')} message={t('Hint')} />
+            </View>
           </View>
           <View style={localStyles.footer}>
             <ButtonComponent type={'primary'} label={t('Button')} onPress={handleLogin} />

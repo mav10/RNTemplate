@@ -35,7 +35,6 @@ export const localStyles = StyleSheet.create({
     marginBottom: 12,
   },
   text: {
-    fontSize: 26,
-    letterSpacing: 10,
+    fontSize: 22,
   },
 });

@@ -1,18 +1,15 @@
-/* eslint-disable react-native/no-inline-styles,react-native/no-color-literals */
 import React from 'react';
 import { Image, Text, TouchableOpacity } from 'react-native';
 import { localStyles } from './hintButton.styles';
-import { Trans, useTranslation } from 'react-i18next';
 import { AppCommonStyles, uxTapZone } from '../../commons/styles/styles';
 import { useModal } from '../../appInfrastructure/hooks/useModal';
 import { AppModal } from '../../commons/modal/modal.container';
-import { Fonts } from '../../commons/styles/fonts';
-import Config from 'react-native-config';
+import { HintButtonProps } from './hintButton';
 
 const question = require('../../../assets/images/question.png');
 
-export const HintButton = () => {
-  const { t } = useTranslation();
+export const HintButton = (props: HintButtonProps) => {
+  const { message, header } = props;
   const { visible, openModal, closeModal } = useModal('CLOSED');
 
   return (
@@ -26,13 +23,8 @@ export const HintButton = () => {
         <Image source={question} style={localStyles.image} />
       </TouchableOpacity>
 
-      <AppModal isVisible={visible} onClose={closeModal} headerText={t('DevMode.Hint_Header')}>
-        <Text style={AppCommonStyles.centerText}>
-          <Trans i18nKey={'DevMode.Hint_Text'} values={{ password: Config.REACT_APP_DEVMODE_PASS }}>
-            <Text style={{ fontFamily: Fonts.BOLD }}>Password:</Text>
-            <Text style={{ color: 'red' }}>pass</Text>
-          </Trans>
-        </Text>
+      <AppModal isVisible={visible} onClose={closeModal} headerText={header}>
+        <Text style={AppCommonStyles.centerText}>{message}</Text>
       </AppModal>
     </>
   );

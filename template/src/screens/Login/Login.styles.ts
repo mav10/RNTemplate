@@ -19,6 +19,7 @@ export const localStyles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
   },
+  hintContainer: { position: 'absolute', right: 0, top: -12 },
   inputs: {
     flex: 1,
     gap: 20,

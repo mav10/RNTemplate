@@ -74,6 +74,7 @@
       "Label": "Password",
       "Placeholder": "Type password"
     },
+    "HintHeader": "Dummy credentials",
     "Hint": "You can type credentials username=\"user\" password=\"user123\""
   },
   "Home": {
