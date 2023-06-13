@@ -132,5 +132,10 @@
     "DisclaimerCaption": "Disclaimer",
     "Other": "You can add extra info and even icons for such fields",
     "OtherCaption": "Other"
+  },
+  "Shake": {
+    "Header": "Something happened?",
+    "Text": "We've notices that you have shaken a device, are you going to report some bug-report info?",
+    "Button": "Send bug report"
   }
 }

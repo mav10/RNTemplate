@@ -1,51 +1,69 @@
-import * as Sentry from '@sentry/react-native';
-import Logger from 'js-logger';
-import { useEffect, useRef } from 'react';
-import { Alert, EmitterSubscription } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import { EmitterSubscription, StyleSheet, Text, View } from 'react-native';
 import RNShake from 'react-native-shake';
-import { useDevModeEnabled } from '../../features/app/app-selectors';
+import { useModal } from './useModal';
+import { AppSwipeModal } from '../../commons/modal/modal.container';
+import { logger } from '../logging/logging';
+import { useTranslation } from 'react-i18next';
+import { ButtonComponent } from '../../commons/buttons/button.component';
+import { AppCommonStyles } from '../../commons/styles/styles';
+import { CommonColors } from '../../commons/styles/colors';
 
 export function useShakeEventHandler() {
+  const { t } = useTranslation();
   const debugMessageAlertIsPresent = useRef(false);
-  const isDevModeAuthorized = useDevModeEnabled();
+  const { visible, openModal, closeModal } = useModal('CLOSED');
 
-  useEffect(
-    function shakeEventHandler() {
-      const shakeHandler = () => {
-        // Guard to avoid system messages duplicate.
-        if (debugMessageAlertIsPresent.current) {
-          return;
-        }
-        const msg = 'Shake event message';
-        try {
-          debugMessageAlertIsPresent.current = true;
-          Sentry.captureMessage(msg, context => {
-            context.setLevel('debug');
-            context.setTag('shake-event', 'shake-debug-event');
-            // Show some messages about bug was sent.
-            Alert.alert('Debug message sent', 'Now we know the issue is out there', [
-              {
-                text: 'Ok',
-                onPress: () => (debugMessageAlertIsPresent.current = false),
-              },
-            ]);
-            return context;
-          });
-        } catch (e) {
-          Logger.error(e);
-        }
-      };
-
-      let subscription: EmitterSubscription | null = null;
-
-      if (isDevModeAuthorized) {
-        subscription = RNShake.addListener(shakeHandler);
+  useEffect(function shakeEventHandler() {
+    const shakeHandler = () => {
+      logger().info('[Shake event] handled');
+      // Guard to avoid system messages duplicate.
+      if (debugMessageAlertIsPresent.current) {
+        return;
       }
 
-      return () => {
-        subscription?.remove();
-      };
-    },
-    [isDevModeAuthorized]
-  );
+      openModal();
+    };
+
+    let subscription: EmitterSubscription | null = RNShake.addListener(shakeHandler);
+
+    return () => {
+      subscription?.remove();
+    };
+  }, []);
+
+  const onCloseModal = useCallback(() => {
+    closeModal();
+    debugMessageAlertIsPresent.current = false;
+  }, [closeModal]);
+
+  const onSend = useCallback(() => {
+    logger().info('Shake event trigger');
+    // TODO: send event to bug-tracker like a Sentry, Google-analytics etc.
+  }, []);
+
+  const shakeEventModal = useMemo(() => {
+    return (
+      <AppSwipeModal isVisible={visible} onClose={onCloseModal} headerText={t('Shake.Header')}>
+        <View style={localStyles.container}>
+          <Text style={localStyles.text}>{t('Shake.Text')}</Text>
+          <ButtonComponent label={'Shake.Button'} onPress={onSend} type={'primary'} />
+        </View>
+      </AppSwipeModal>
+    );
+  }, [visible, onCloseModal, onSend]);
+
+  return shakeEventModal;
 }
+
+const localStyles = StyleSheet.create({
+  container: {
+    ...AppCommonStyles.container15,
+    gap: 20,
+  },
+  text: {
+    ...AppCommonStyles.paragraphText,
+    ...AppCommonStyles.centerText,
+    color: CommonColors.darkGray,
+  },
+});
