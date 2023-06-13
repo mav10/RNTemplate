@@ -22,6 +22,7 @@ import { queryClientInstance } from './services';
 import { ModalPresenterProvider } from './context/ModalPresenter.provider';
 import { QueryFactory } from './services/api';
 import { enableFreeze } from 'react-native-screens';
+import { RootErrorBoundary } from './appInfrastructure/error-handling/ErrorBoundary.component';
 
 // React Navigation, optimize memory usage.
 enableFreeze(true);
@@ -51,7 +52,9 @@ const Root = () => {
         <Provider store={RootStore.store}>
           <PersistGate persistor={RootStore.persistor}>
             <CodePushProvider>
-              <ApplicationRouter />
+              <RootErrorBoundary>
+                <ApplicationRouter />
+              </RootErrorBoundary>
               <SplashScreen />
             </CodePushProvider>
           </PersistGate>
