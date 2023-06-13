@@ -7,6 +7,7 @@ export enum AppRoutes {
   ReactNative = 'ReactNative',
   Notifications = 'Notifications',
   Profile = 'Profile',
+  Requests = 'Requests',
 
   NoConnection = 'NoConnection',
   ServerError = 'ServerError',

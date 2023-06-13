@@ -10,6 +10,7 @@ import { TabBarIcon } from './configuration/TabBarIcon';
 import { LoginController } from '../screens/Login/LoginController';
 import { ProfileController } from '../screens/Profile/ProfileController';
 import { useIsAuthorized } from '../features/auth/auth-selectors';
+import { RequestsController } from '../screens/Requests/RequestsController';
 
 const dashboardIcon = require('../../assets/images/navigation/app.png');
 const reactIcon = require('../../assets/images/navigation/library.png');
@@ -33,6 +34,7 @@ export const TabNavigation = () => {
         component={ReactNativeScreen}
         options={{ tabBarIcon: color => <TabBarIcon style={color} icon={reactIcon} /> }}
       />
+      <TabNavigator.Screen name={AppRoutes.Requests} component={RequestsController} />
       <TabNavigator.Screen
         name={AppRoutes.Notifications}
         component={NotImplementedScreen}

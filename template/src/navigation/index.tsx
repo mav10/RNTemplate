@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { PropsWithChildren, useCallback } from 'react';
 import { AppActions } from '../features/app/app-slice';
 import { useAppDispatch } from '../appInfrastructure/redux-store/store-types';
 import { LinkingOptions, NavigationContainer } from '@react-navigation/native';
@@ -15,6 +15,8 @@ import { DevController } from '../screens/Dev/DevController';
 import { InfoController } from '../screens/Info/InfoController';
 import { LoginController } from '../screens/Login/LoginController';
 import { useIsAuthorized } from '../features/auth/auth-selectors';
+import { useNotifications } from '../appInfrastructure/push-notifications/useNotifications';
+import { useShakeEventHandler } from '../appInfrastructure/hooks/useShakeEventHandler';
 
 const linking: LinkingOptions<RootStackScreenParams> = {
   prefixes: ['rntemplateapp://'],
@@ -62,7 +64,16 @@ export const ApplicationRouter = () => {
   );
 };
 
-const HooksProvider = () => {
+const HooksProvider: React.FC<PropsWithChildren> = props => {
   useNetworkState();
-  return <></>;
+  // TODO: if you wanna get notifications only for authorized user - put it somewhere deeper (under authorized screens).
+  useNotifications();
+  const shakeModal = useShakeEventHandler();
+
+  return (
+    <>
+      {shakeModal}
+      {props.children}
+    </>
+  );
 };

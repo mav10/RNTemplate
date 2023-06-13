@@ -16,4 +16,5 @@ export type TabScreenParams = {
   [AppRoutes.ReactNative]: undefined;
   [AppRoutes.Notifications]: undefined;
   [AppRoutes.Profile]: undefined;
+  [AppRoutes.Requests]: undefined;
 };
