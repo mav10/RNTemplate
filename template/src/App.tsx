@@ -20,15 +20,26 @@ import { AppCommonStyles } from './commons/styles/styles';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClientInstance } from './services';
 import { ModalPresenterProvider } from './context/ModalPresenter.provider';
-import { useNotifications } from './appInfrastructure/push-notifications/useNotifications';
+import { QueryFactory } from './services/api';
+import { enableFreeze } from 'react-native-screens';
 
+// React Navigation, optimize memory usage.
+enableFreeze(true);
+
+// easy to update in debug mode (do not replace twice)
+const SERVER_API = Config.REACT_APP_API_URL;
+
+QueryFactory.setBaseUrl(SERVER_API);
+QueryFactory.setAxiosFactory(() => axios);
+
+axios.interceptors.request.use(Interceptors.setupRefreshTokenInterceptor(RootStore.store.getState));
+axios.interceptors.request.use(Interceptors.injectTokenInterceptor(RootStore.store.getState));
 axios.interceptors.request.use(Interceptors.injectAppVersionToHeaders(RootStore.store.getState));
 axios.interceptors.request.use(Interceptors.injectLanguageInterceptor);
+axios.interceptors.request.use(Interceptors.createInjectTimezoneInterceptor);
 
 const Root = () => {
   const { t } = useTranslation();
-  // TODO: if you wanna get notifications only for authorized user - put it somewhere deeper (under authorized screens).
-  useNotifications();
 
   const loading = useMemo(() => {
     return <Loader inProgress={true} text={t('Common_loading')} />;
